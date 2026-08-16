@@ -17,7 +17,8 @@
 1. Codex 自动任务每天北京时间 `06:00` 返回同一任务，搜索、筛选并生成日报。
 2. Codex 以 `templates/daily-template.html` 为内容密度、栏目结构、交叉跳转与视觉质量基线；不得退化成自动来源摘要页。
 3. 当天页面写入 `docs/archive/YYYY-MM-DD.html`，研究底稿写入 `research/`，`docs/index.html` 始终指向最新版。
-4. Codex 提交并推送更新后，GitHub Actions 只负责部署 `docs/` 到 GitHub Pages，不调用任何模型。
+4. `docs/archive/index.html` 保存按日期倒序的摘要索引；每次发布都要新增当期条目并检查链接。
+5. Codex 提交并推送更新后，GitHub Actions 只负责部署 `docs/` 到 GitHub Pages，不调用任何模型。
 
 > 这是本地 Codex 自动任务：计划运行时电脑需保持开机，并让 Codex 可运行。若需要不依赖本机的纯云端运行，可再切回 GitHub Actions + 模型 API。
 
