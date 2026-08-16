@@ -24,12 +24,17 @@
   </div></header>
   <nav class="bar" aria-label="归档导航"><div class="bar-inner"><a href="../">← 返回今日首页</a><a href="./">全部日报</a><label for="archive-search" hidden>搜索日报</label><input class="search" id="archive-search" type="search" placeholder="搜索日期或主题，例如 SGLang / GPU / Agent"></div></nav>
   <main>
-    <section class="summary"><h2>每日日报摘要索引</h2><span class="count" id="archive-count">1 issue · latest first</span></section>
+    <section class="summary"><h2>每日日报摘要索引</h2><span class="count" id="archive-count">2 issues · latest first</span></section>
     <section class="archive-list" id="archive-list" aria-live="polite">
+      <article class="issue" data-search="2026 08 17 nvidia ai factory financing 800v power hot chips rubin mi400 maia tpu sglang vllm sparse mla flashattention flashinfer nemotron switchyard agent codex claude code pi 推理加速 资本">
+        <div class="date">2026.08.17<small>星期一 · 增强版<br>约 19 分钟阅读</small></div>
+        <div><h3>AI 基础设施的约束，正在从“买到 GPU”扩展为“融得到钱、送得进电、跑得稳软件”。</h3><p>NVIDIA 以六家机构和超过 5,000 亿美元目标推动 compute 融资，800 VDC 给出 2MW/排路线；vLLM 同日合入 MI355X sparse‑MLA 优化并因兼容性回退 FA4；模型路由成为新的推理降本层。</p><div class="tags"><span class="tag">AI factory 融资</span><span class="tag">800 VDC</span><span class="tag">vLLM / SGLang</span><span class="tag">FlashInfer</span><span class="tag">模型路由</span><span class="tag">Hot Chips</span></div></div>
+        <div><span class="latest">LATEST ISSUE</span><a class="open" href="2026-08-17.html">打开本期日报 →</a></div>
+      </article>
       <article class="issue" data-search="2026 08 16 gpu amd broadcom tpu glm agent codex claude code pi opscale 推理加速 sglang vllm tensorrt-llm pytorch flashattention flashinfer flashmla cudnn cublas deepseek kimi qwen 宏观">
         <div class="date">2026.08.16<small>星期日 · 增强版<br>约 18 分钟阅读</small></div>
         <div><h3>资金、定制芯片与算力利用率，正在同时重写 AI 竞争边界。</h3><p>AMD 融资与 TPU v10 传闻重估芯片竞争；Kimi K3 推动模型—框架—算子协同；OpScale 把 GPU 利用率变成可量化的新供给；Agent 竞争继续下沉到执行控制层。</p><div class="tags"><span class="tag">GPU / ASIC</span><span class="tag">SGLang / vLLM</span><span class="tag">FlashInfer</span><span class="tag">开放模型</span><span class="tag">Agent harness</span><span class="tag">推理加速</span></div></div>
-        <div><span class="latest">LATEST ISSUE</span><a class="open" href="2026-08-16.html">打开本期日报 →</a></div>
+        <div><a class="open" href="2026-08-16.html">打开本期日报 →</a></div>
       </article>
     </section>
     <p class="empty" id="archive-empty">没有匹配的日报。请尝试更短的日期、公司或技术关键词。</p>
@@ -45,7 +50,7 @@
       const query=search.value.trim().toLowerCase();
       let visible=0;
       issues.forEach(issue=>{const match=!query||issue.dataset.search.toLowerCase().includes(query)||issue.innerText.toLowerCase().includes(query);issue.hidden=!match;if(match)visible+=1});
-      count.textContent=query?`${visible} matched · latest first`:`${issues.length} issue · latest first`;
+      count.textContent=query?`${visible} matched · latest first`:`${issues.length} issues · latest first`;
       empty.style.display=visible?'none':'block';
     });
   </script>
