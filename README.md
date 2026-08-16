@@ -15,23 +15,19 @@
 ## 工作方式
 
 1. Codex 自动任务每天北京时间 `06:00` 返回同一任务，搜索、筛选并生成日报。
-2. 生成器采集公开 GitHub Releases、Google News RSS 与 arXiv 数据；Codex 负责编辑判断与质量检查。
-3. 当天页面写入 `docs/archive/YYYY-MM-DD.html`，结构化结果写入 `docs/data/`，`docs/index.html` 始终指向最新版。
+2. Codex 以 `templates/daily-template.html` 为内容密度、栏目结构、交叉跳转与视觉质量基线；不得退化成自动来源摘要页。
+3. 当天页面写入 `docs/archive/YYYY-MM-DD.html`，研究底稿写入 `research/`，`docs/index.html` 始终指向最新版。
 4. Codex 提交并推送更新后，GitHub Actions 只负责部署 `docs/` 到 GitHub Pages，不调用任何模型。
 
 > 这是本地 Codex 自动任务：计划运行时电脑需保持开机，并让 Codex 可运行。若需要不依赖本机的纯云端运行，可再切回 GitHub Actions + 模型 API。
 
-## 手动生成
+## 手动更新
 
 在 Codex 中可以随时手动运行同一日报任务；仓库的 **Actions → Publish Daily Brief to Pages → Run workflow** 只会重新发布现有页面。
 
-本地运行：
+编辑时先复制 `templates/daily-template.html`，替换日期、事实、来源与编辑判断；保留 Executive readout、30 秒结论、分类雷达、推理加速路线图、深度解读和跟踪清单。发布前检查全部内部锚点、外链、桌面与手机布局。
 
-```bash
-python scripts/generate_daily.py
-```
-
-没有模型令牌时，生成器会生成来源摘要版页面，便于自动任务继续编辑与检查。
+2026-08-16 的原始高质量报告同时保存在 `docs/archive/2026-08-16.html`，并作为模板冻结保存。
 
 ## 可信度约定
 
