@@ -1,0 +1,590 @@
+{
+  "date": "2026-08-16",
+  "generated_at": "2026-08-16 09:21 CST",
+  "model": "openai/gpt-4.1",
+  "report": {
+    "lead": "本期使用降级编辑模式：保留官方发布、论文和新闻源，并明确减少推断。待 GitHub Models 恢复后，将自动恢复跨来源去重、影响判断与深度解读。",
+    "summary": [
+      {
+        "headline": "寒王、摩王“期中考试”不及格？ - 36Kr",
+        "detail_id": "item-1",
+        "source_ids": [
+          "S026"
+        ]
+      },
+      {
+        "headline": "摩尔线程：国产GPU最接近\"翻过雪山\"的时刻 - 新浪财经",
+        "detail_id": "item-2",
+        "source_ids": [
+          "S027"
+        ]
+      },
+      {
+        "headline": "当大家都在抢 GPU，NEBIUS 已经开始挑客人了？ - Moomoo",
+        "detail_id": "item-3",
+        "source_ids": [
+          "S028"
+        ]
+      },
+      {
+        "headline": "NVIDIA/TensorRT-LLM v1.3.0rc23",
+        "detail_id": "item-4",
+        "source_ids": [
+          "S007"
+        ]
+      },
+      {
+        "headline": "NVIDIA/TensorRT-LLM v1.3.0rc24",
+        "detail_id": "item-5",
+        "source_ids": [
+          "S008"
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "china_chip",
+        "title": "国产 GPU / 加速器",
+        "items": [
+          {
+            "id": "item-1",
+            "headline": "寒王、摩王“期中考试”不及格？ - 36Kr",
+            "what_happened": "寒王、摩王“期中考试”不及格？ 36Kr",
+            "key_facts": "发布/收录时间：Thu, 13 Aug 2026 13:24:00 GMT；来源：36Kr",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "report",
+            "source_ids": [
+              "S026"
+            ]
+          },
+          {
+            "id": "item-2",
+            "headline": "摩尔线程：国产GPU最接近\"翻过雪山\"的时刻 - 新浪财经",
+            "what_happened": "摩尔线程：国产GPU最接近\"翻过雪山\"的时刻 新浪财经",
+            "key_facts": "发布/收录时间：Thu, 13 Aug 2026 23:52:19 GMT；来源：新浪财经",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "report",
+            "source_ids": [
+              "S027"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "infrastructure",
+        "title": "AI 基础设施",
+        "items": [
+          {
+            "id": "item-3",
+            "headline": "当大家都在抢 GPU，NEBIUS 已经开始挑客人了？ - Moomoo",
+            "what_happened": "当大家都在抢 GPU，NEBIUS 已经开始挑客人了？ Moomoo",
+            "key_facts": "发布/收录时间：Sat, 15 Aug 2026 11:38:54 GMT；来源：Moomoo",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "report",
+            "source_ids": [
+              "S028"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "framework",
+        "title": "推理框架",
+        "items": [
+          {
+            "id": "item-4",
+            "headline": "NVIDIA/TensorRT-LLM v1.3.0rc23",
+            "what_happened": "- Known Issues - Deepseek-V4-Pro can hang on GB300 disagg setups. - DeepSeek-R1 NVFP4 multi-GPU (PP4 + MTP) can crash with an MPI worker exit during execution (seen on GB300). - DeepSeek-V3-Lite BF16 + chunked prefill (Python scheduler) can hang / fail to complete. - Qwen MoE multi-LoRA (routed experts, varying ranks, eager) can fail during sampling. - Gemma3-1B FP8 prequantized with torch.compile can fail during CUDA graph capture (PyTorch CUDA allocator internal assert). - Qwen3.5-35B-A3B BF16 (CUTLASS, TP1 on A100) can hit CUDA OOM. - Model Support - Load DeepSeek V4 mixed-precision NVFP4 checkpoints (#16433) - Enable W4A8 checkpoint loading for Gemma4 K=V layers (#167",
+            "key_facts": "发布/收录时间：2026-07-31；来源：NVIDIA/TensorRT-LLM",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S007"
+            ]
+          },
+          {
+            "id": "item-5",
+            "headline": "NVIDIA/TensorRT-LLM v1.3.0rc24",
+            "what_happened": "- Known Issues - Workloads combining `torch.compile` with CUDA graphs can fail during initialization or inference with allocator assertions, missing outputs, or illegal memory accesses. - MLA models using MTP with multi-stream or piecewise CUDA graphs on SM120 can asynchronously crash with an illegal memory access. - Workloads using KVCacheManagerV2 may intermittently report a teardown failure after otherwise successful inference; this is observed with DeepSeek-V4-Flash. - Diffusion image and video pipelines can show output-quality regressions when conditioning defaults or fused normalization change numerical behavior; this is observed with Cosmos 3 Nano T2I/T2V and Wan 2",
+            "key_facts": "发布/收录时间：2026-08-12；来源：NVIDIA/TensorRT-LLM",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S008"
+            ]
+          },
+          {
+            "id": "item-6",
+            "headline": "pytorch/pytorch PyTorch 2.12.1 Release, bug fix release",
+            "what_happened": "This release is meant to fix the following regressions and silent correctness issues: ## Regression fixes - Fix nondeterministic outputs in test_batch_invariance with FLASH_ATTN on NVIDIA B200 GPUs ([#181248](https://github.com/pytorch/pytorch/issues/181248)), fixed by updating Triton to 3.7.1 ([#186814](https://github.com/pytorch/pytorch/pull/186814)) - Fix illegal memory access in the Triton convolution2d_bwd_weight kernel on B100/B200 (sm100) GPUs ([#187081](https://github.com/pytorch/pytorch/issues/187081)), fixed by updating Triton to 3.7.1 ([#186814](https://github.com/pytorch/pytorch/pull/186814)) - Fix fill_ on byte-dtype views with misaligned storage offset ([#18",
+            "key_facts": "发布/收录时间：2026-06-18；来源：pytorch/pytorch",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S009"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kernel",
+        "title": "算子库",
+        "items": [
+          {
+            "id": "item-7",
+            "headline": "Dao-AILab/flash-attention fa4-v4.0.0.beta25",
+            "what_happened": "## What's Changed * Remove SM100 Functions from Hopper Flash Attention 3 by @ankutalev in https://github.com/Dao-AILab/flash-attention/pull/2746 * [CuTe,Sm100] Varlen Dynamic Persistent scheduler and metadata by @reubenconducts in https://github.com/Dao-AILab/flash-attention/pull/2559 * [AI] Add doc on debug methodology by @jayhshah in https://github.com/Dao-AILab/flash-attention/pull/2753 * [ROCm] Fix CK varlen_fwd binding argument mismatch by @hyoon1 in https://github.com/Dao-AILab/flash-attention/pull/2742 * [CuTe, SM100] Sparse MLA bwd: don't scatter dK/dV at -1 sentinel indices by @abcdabcd987 in https://github.com/Dao-AILab/flash-attention/pull/2755 ## New Contribut",
+            "key_facts": "发布/收录时间：2026-08-05；来源：Dao-AILab/flash-attention",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S015"
+            ]
+          },
+          {
+            "id": "item-8",
+            "headline": "Dao-AILab/flash-attention fa4-v4.0.0.beta26",
+            "what_happened": "## What's Changed * [CuTe,Bwd,Sm90] Fix: wait for bwd_preprocess on the block-sparse path, matching the dense path by @Fugoes in https://github.com/Dao-AILab/flash-attention/pull/2756 * [Cute, bwd, sm90/100/110] Support learnable sink in backward by @henrylhtsang in https://github.com/Dao-AILab/flash-attention/pull/2706 * [CuTe, FA4] Preserve first-tile flag during scheduler reconstruction by @dongxiao92 in https://github.com/Dao-AILab/flash-attention/pull/2705 * Fix duplicated word in layer norm comment by @cupkk in https://github.com/Dao-AILab/flash-attention/pull/2744 * [CuTe, SM100] Fix deadlock in varlen + block-sparse + SplitKV forward by @JiaxuanBai in https://gith",
+            "key_facts": "发布/收录时间：2026-08-12；来源：Dao-AILab/flash-attention",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S016"
+            ]
+          },
+          {
+            "id": "item-9",
+            "headline": "NVIDIA/cudnn-frontend v1.26.0 release",
+            "what_happened": "# cuDNN Frontend v1.26.0 Release Notes cuDNN Frontend v1.26.0 is the recommended version for cuDNN 9.24.0 and later releases. ## Updates to Graph API 🚀 🚀 **SDPA** - Added unified-engine FP8 and MXFP8 forward SDPA support (#301). Requires cuDNN 9.25.0 or later (#339). - SDPA backward with head dimension d=256 now uses the cuDNN-native path on cuDNN 9.23+, bypassing the OSS kernel path (#335). **Data types** - Added a new `BYTE_BOOLEAN` frontend data type (#302). Boolean tensors automatically map to `BYTE_BOOLEAN` when running against cuDNN 9.25 and later (#339). **Serialization and plan management** - `Graph::deserialize` now accepts an `enforce_precompiled` option to requ",
+            "key_facts": "发布/收录时间：2026-07-07；来源：NVIDIA/cudnn-frontend",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S017"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "model",
+        "title": "开放模型",
+        "items": [
+          {
+            "id": "item-10",
+            "headline": "deepseek-ai/DeepSeek-V3 v1.0.0",
+            "what_happened": "This release is created for archival purposes and DOI generation.",
+            "key_facts": "发布/收录时间：2025-06-27；来源：deepseek-ai/DeepSeek-V3",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S021"
+            ]
+          },
+          {
+            "id": "item-11",
+            "headline": "独立研究团队：找到了，KIMI，蒸馏的实锤证据！但，DeepSeek，抓不到把柄 - 手机网易网",
+            "what_happened": "独立研究团队：找到了，KIMI，蒸馏的实锤证据！但，DeepSeek，抓不到把柄 手机网易网",
+            "key_facts": "发布/收录时间：Fri, 14 Aug 2026 02:42:43 GMT；来源：手机网易网",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "report",
+            "source_ids": [
+              "S029"
+            ]
+          },
+          {
+            "id": "item-12",
+            "headline": "谷歌AI人事动荡：全栈是护城河，也是纷争的起源|Gemini 3.5 Pro|Gemini 4|DeepSeek|OpenAI|Kimi_手机新浪网 - 新浪财经",
+            "what_happened": "谷歌AI人事动荡：全栈是护城河，也是纷争的起源|Gemini 3.5 Pro|Gemini 4|DeepSeek|OpenAI|Kimi_手机新浪网 新浪财经",
+            "key_facts": "发布/收录时间：Sat, 15 Aug 2026 00:35:25 GMT；来源：新浪财经",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "report",
+            "source_ids": [
+              "S030"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "agent",
+        "title": "Agent 与开发工具",
+        "items": [
+          {
+            "id": "item-13",
+            "headline": "anthropics/claude-code v2.1.232",
+            "what_happened": "## What's changed - Subagent forking is now on by default: a `subagent_type: \"fork\"` subagent inherits the full conversation and prompt cache, and non-teammate agent spawns in interactive sessions now run in the background by default - Type `@` in the prompt to mention another Claude session by name; Claude then uses `SendMessage` to reach that session directly - `SendMessage` now delivers to a bare name that exactly matches one live session, instead of asking to confirm with a ref first - Interactive sessions on one machine now keep unique names: starting or renaming a session to a name another live session already uses gives it a `name-word-word` variant and tells you -",
+            "key_facts": "发布/收录时间：2026-08-13；来源：anthropics/claude-code",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S001"
+            ]
+          },
+          {
+            "id": "item-14",
+            "headline": "anthropics/claude-code v2.1.233",
+            "what_happened": "## What's changed - Added GitLab merge request URL support to the `--worktree` flag and the `claude agents` view (where MRs display as `!N`) - Added an opt-in `forward_user_identity` apps gateway setting on Anthropic upstreams that sends the signed-in user's identity as headers, so a proxy behind the gateway can attribute spend per user - Added opt-in memory cgroup support for Bash tool commands on Linux (`CLAUDE_CODE_TOOL_MEMORY_LIMIT`) so a runaway build can't stall the session - Added `CLAUDE_CODE_WEBFETCH_CACHE_TTL_MS` environment variable to configure the WebFetch session URL cache TTL (default unchanged: 15 minutes) - Fixed cloud sessions occasionally being marked a",
+            "key_facts": "发布/收录时间：2026-08-14；来源：anthropics/claude-code",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S002"
+            ]
+          },
+          {
+            "id": "item-15",
+            "headline": "earendil-works/pi v0.84.1",
+            "what_happened": "### New Features - **Qwen Token Plan Individual** — Use the built-in provider for models documented for Individual subscriptions. See [API Keys](https://github.com/earendil-works/pi/blob/v0.84.1/packages/coding-agent/docs/providers.md#api-keys). - **Authentication readiness checks** — Use `pi auth check` to verify provider or model credentials, optionally emitting the resolved credential. - **Improved fullscreen interaction** — Select words and paragraphs with multiple clicks and configure half-page transcript scrolling. See [TUI Fullscreen Viewport](https://github.com/earendil-works/pi/blob/v0.84.1/packages/coding-agent/docs/keybindings.md#tui-fullscreen-viewport). - **T",
+            "key_facts": "发布/收录时间：2026-08-07；来源：earendil-works/pi",
+            "impact": "该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。",
+            "confidence": "fact",
+            "source_ids": [
+              "S003"
+            ]
+          }
+        ]
+      }
+    ],
+    "deep_dives": [
+      {
+        "title": "模型—框架—算子协同",
+        "analysis": "新模型的可部署性取决于框架适配、低精度正确性、KV 管理和算子覆盖，而不只取决于模型榜单。",
+        "source_ids": []
+      },
+      {
+        "title": "利用率是虚拟新增供给",
+        "analysis": "在电力和建设周期受限时，投机解码、缓存、量化与调度优化往往比新建机房更快形成有效算力。",
+        "source_ids": []
+      },
+      {
+        "title": "事实与归因分开",
+        "analysis": "价格、版本和论文数字可以记录；因果关系、收入兑现和泛化效果必须等待更强证据。",
+        "source_ids": []
+      }
+    ],
+    "watchlist": [
+      {
+        "when": "每日",
+        "item": "推理框架与算子库",
+        "why": "检查 release、breaking changes 与正确性修复"
+      },
+      {
+        "when": "每日",
+        "item": "开放模型权重",
+        "why": "检查许可、模型卡与部署配方"
+      },
+      {
+        "when": "每周",
+        "item": "推理加速技术",
+        "why": "复盘投机解码、KV、量化和调度的可复现收益"
+      },
+      {
+        "when": "持续",
+        "item": "GPU 与基础设施",
+        "why": "跟踪交付、电力、资本开支与政策约束"
+      }
+    ],
+    "degraded": true
+  },
+  "sources": [
+    {
+      "id": "S001",
+      "category": "agent",
+      "title": "anthropics/claude-code v2.1.232",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.232",
+      "published": "2026-08-13",
+      "publisher": "anthropics/claude-code",
+      "snippet": "## What's changed - Subagent forking is now on by default: a `subagent_type: \"fork\"` subagent inherits the full conversation and prompt cache, and non-teammate agent spawns in interactive sessions now run in the background by default - Type `@` in the prompt to mention another Claude session by name; Claude then uses `SendMessage` to reach that session directly - `SendMessage` now delivers to a bare name that exactly matches one live session, instead of asking to confirm with a ref first - Interactive sessions on one machine now keep unique names: starting or renaming a session to a name another live session already uses gives it a `name-word-word` variant and tells you -",
+      "kind": "official_release"
+    },
+    {
+      "id": "S002",
+      "category": "agent",
+      "title": "anthropics/claude-code v2.1.233",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.233",
+      "published": "2026-08-14",
+      "publisher": "anthropics/claude-code",
+      "snippet": "## What's changed - Added GitLab merge request URL support to the `--worktree` flag and the `claude agents` view (where MRs display as `!N`) - Added an opt-in `forward_user_identity` apps gateway setting on Anthropic upstreams that sends the signed-in user's identity as headers, so a proxy behind the gateway can attribute spend per user - Added opt-in memory cgroup support for Bash tool commands on Linux (`CLAUDE_CODE_TOOL_MEMORY_LIMIT`) so a runaway build can't stall the session - Added `CLAUDE_CODE_WEBFETCH_CACHE_TTL_MS` environment variable to configure the WebFetch session URL cache TTL (default unchanged: 15 minutes) - Fixed cloud sessions occasionally being marked a",
+      "kind": "official_release"
+    },
+    {
+      "id": "S003",
+      "category": "agent",
+      "title": "earendil-works/pi v0.84.1",
+      "url": "https://github.com/earendil-works/pi/releases/tag/v0.84.1",
+      "published": "2026-08-07",
+      "publisher": "earendil-works/pi",
+      "snippet": "### New Features - **Qwen Token Plan Individual** — Use the built-in provider for models documented for Individual subscriptions. See [API Keys](https://github.com/earendil-works/pi/blob/v0.84.1/packages/coding-agent/docs/providers.md#api-keys). - **Authentication readiness checks** — Use `pi auth check` to verify provider or model credentials, optionally emitting the resolved credential. - **Improved fullscreen interaction** — Select words and paragraphs with multiple clicks and configure half-page transcript scrolling. See [TUI Fullscreen Viewport](https://github.com/earendil-works/pi/blob/v0.84.1/packages/coding-agent/docs/keybindings.md#tui-fullscreen-viewport). - **T",
+      "kind": "official_release"
+    },
+    {
+      "id": "S004",
+      "category": "agent",
+      "title": "earendil-works/pi v0.84.2",
+      "url": "https://github.com/earendil-works/pi/releases/tag/v0.84.2",
+      "published": "2026-08-14",
+      "publisher": "earendil-works/pi",
+      "snippet": "### New Features - **Fullscreen transcript search** — Search and navigate matches in fullscreen mode. See [TUI Fullscreen Viewport](https://github.com/earendil-works/pi/blob/v0.84.2/packages/coding-agent/docs/keybindings.md#tui-fullscreen-viewport). - **Configurable default tools** — Choose startup built-in tools globally or per project. See [Tools](https://github.com/earendil-works/pi/blob/v0.84.2/packages/coding-agent/docs/settings.md#tools). - **Configurable fullscreen exit output** — Print the transcript or only a resume hint on exit. See [Interactive Mode](https://github.com/earendil-works/pi/blob/v0.84.2/packages/coding-agent/docs/usage.md#interactive-mode). ### Add",
+      "kind": "official_release"
+    },
+    {
+      "id": "S005",
+      "category": "agent",
+      "title": "openai/codex 0.148.0-alpha.19",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.19",
+      "published": "2026-08-15",
+      "publisher": "openai/codex",
+      "snippet": "Release 0.148.0-alpha.19",
+      "kind": "official_release"
+    },
+    {
+      "id": "S006",
+      "category": "agent",
+      "title": "openai/codex 0.148.0-alpha.20",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.20",
+      "published": "2026-08-16",
+      "publisher": "openai/codex",
+      "snippet": "Release 0.148.0-alpha.20",
+      "kind": "official_release"
+    },
+    {
+      "id": "S007",
+      "category": "framework",
+      "title": "NVIDIA/TensorRT-LLM v1.3.0rc23",
+      "url": "https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.3.0rc23",
+      "published": "2026-07-31",
+      "publisher": "NVIDIA/TensorRT-LLM",
+      "snippet": "- Known Issues - Deepseek-V4-Pro can hang on GB300 disagg setups. - DeepSeek-R1 NVFP4 multi-GPU (PP4 + MTP) can crash with an MPI worker exit during execution (seen on GB300). - DeepSeek-V3-Lite BF16 + chunked prefill (Python scheduler) can hang / fail to complete. - Qwen MoE multi-LoRA (routed experts, varying ranks, eager) can fail during sampling. - Gemma3-1B FP8 prequantized with torch.compile can fail during CUDA graph capture (PyTorch CUDA allocator internal assert). - Qwen3.5-35B-A3B BF16 (CUTLASS, TP1 on A100) can hit CUDA OOM. - Model Support - Load DeepSeek V4 mixed-precision NVFP4 checkpoints (#16433) - Enable W4A8 checkpoint loading for Gemma4 K=V layers (#167",
+      "kind": "official_release"
+    },
+    {
+      "id": "S008",
+      "category": "framework",
+      "title": "NVIDIA/TensorRT-LLM v1.3.0rc24",
+      "url": "https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.3.0rc24",
+      "published": "2026-08-12",
+      "publisher": "NVIDIA/TensorRT-LLM",
+      "snippet": "- Known Issues - Workloads combining `torch.compile` with CUDA graphs can fail during initialization or inference with allocator assertions, missing outputs, or illegal memory accesses. - MLA models using MTP with multi-stream or piecewise CUDA graphs on SM120 can asynchronously crash with an illegal memory access. - Workloads using KVCacheManagerV2 may intermittently report a teardown failure after otherwise successful inference; this is observed with DeepSeek-V4-Flash. - Diffusion image and video pipelines can show output-quality regressions when conditioning defaults or fused normalization change numerical behavior; this is observed with Cosmos 3 Nano T2I/T2V and Wan 2",
+      "kind": "official_release"
+    },
+    {
+      "id": "S009",
+      "category": "framework",
+      "title": "pytorch/pytorch PyTorch 2.12.1 Release, bug fix release",
+      "url": "https://github.com/pytorch/pytorch/releases/tag/v2.12.1",
+      "published": "2026-06-18",
+      "publisher": "pytorch/pytorch",
+      "snippet": "This release is meant to fix the following regressions and silent correctness issues: ## Regression fixes - Fix nondeterministic outputs in test_batch_invariance with FLASH_ATTN on NVIDIA B200 GPUs ([#181248](https://github.com/pytorch/pytorch/issues/181248)), fixed by updating Triton to 3.7.1 ([#186814](https://github.com/pytorch/pytorch/pull/186814)) - Fix illegal memory access in the Triton convolution2d_bwd_weight kernel on B100/B200 (sm100) GPUs ([#187081](https://github.com/pytorch/pytorch/issues/187081)), fixed by updating Triton to 3.7.1 ([#186814](https://github.com/pytorch/pytorch/pull/186814)) - Fix fill_ on byte-dtype views with misaligned storage offset ([#18",
+      "kind": "official_release"
+    },
+    {
+      "id": "S010",
+      "category": "framework",
+      "title": "pytorch/pytorch PyTorch 2.13.0 Release",
+      "url": "https://github.com/pytorch/pytorch/releases/tag/v2.13.0",
+      "published": "2026-07-08",
+      "publisher": "pytorch/pytorch",
+      "snippet": "# PyTorch 2.13.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#new-features) - [Improvements](#improvements) - [Bug fixes](#bug-fixes) - [Performance](#performance) - [Documentation](#documentation) - [Developers](#developers) # Highlights FlexAttention lands on Apple Silicon (MPS), with up to ~12x speedup over SDPA on sparse patterns, and gains a deterministic backward path on CUDA for reproducible gradient computation. CuTeDSL \"Native DSL\" backend gives Inductor a second high-performance code path (alongside Triton) for key GPU operations, with faster compil",
+      "kind": "official_release"
+    },
+    {
+      "id": "S011",
+      "category": "framework",
+      "title": "sgl-project/sglang v0.5.16",
+      "url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.16",
+      "published": "2026-07-25",
+      "publisher": "sgl-project/sglang",
+      "snippet": "# Highlights *574 PRs from 169 contributors.* **DSpark: confidence-driven speculative decoding**: A new speculative algorithm. It drafts semi-autoregressively in blocks, then sizes each verify window from the draft's own confidence instead of a fixed draft length. Reaches **383.7 tok/s at accept length ~5** on DeepSeek-V4-Pro, TP8 on B300 (bs=1). Enable with `--speculative-algorithm DSPARK` and `SGLANG_RAGGED_VERIFY_MODE=compact`; tune the block with `--speculative-dspark-block-size` ([#30261](https://github.com/sgl-project/sglang/pull/30261), [#31434](https://github.com/sgl-project/sglang/pull/31434), [blog](https://www.lmsys.org/blog/2026-07-06-dspark-sglang)). **Inklin",
+      "kind": "official_release"
+    },
+    {
+      "id": "S012",
+      "category": "framework",
+      "title": "sgl-project/sglang v0.5.17",
+      "url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.17",
+      "published": "2026-08-08",
+      "publisher": "sgl-project/sglang",
+      "snippet": "# Highlights *582 PRs from 194 contributors.* **Kimi K3 day-0 support**: A 2.8T-parameter multimodal LatentMoE (896 experts, top-16, routed in a 3584-dim latent space) with a 1M-token context, 69 KDA linear-attention layers interleaved with 24 MLA layers, and a MoonViT3d vision tower, shipping as a native MXFP4 checkpoint. SGLang serves it from day 0 with DCP, DSpark speculative decoding, chunked-prefill PP with TP decode, KDA-aware prefix caching, HiCache L2 over DCP, LoRA on the quantized weights, and reasoning, tool-call and OpenAI-compatible serving, verified on NVIDIA GB300 and AMD MI35x ([#32541](https://github.com/sgl-project/sglang/pull/32541), [#32828](https://gi",
+      "kind": "official_release"
+    },
+    {
+      "id": "S013",
+      "category": "framework",
+      "title": "vllm-project/vllm v0.27.0",
+      "url": "https://github.com/vllm-project/vllm/releases/tag/v0.27.0",
+      "published": "2026-08-10",
+      "publisher": "vllm-project/vllm",
+      "snippet": "# vLLM v0.27.0 Release Notes ## Highlights This release features 561 commits from 242 contributors (64 new)! * **Kimi K3 support** with a full stack landing in one release: core model files and kernels (#50089, #50000), Python (#50093) and Rust (#50104) frontends, AttnRes kernels (#50090), DeepGEMM support (#50458), compressed-tensors quantized checkpoints (#50500), DSpark AR fusion (#50242), and an option to shard the shared expert instead of replicating it (#50656). * **More new models**: Qwen3.5 text-only dense and MoE models (#50210) with EVS video token pruning (#48912), K-EXAONE-2.0-750B-A37B (#50524), VaultGemma via the Transformers modeling backend (#49803), and j",
+      "kind": "official_release"
+    },
+    {
+      "id": "S014",
+      "category": "framework",
+      "title": "vllm-project/vllm v0.27.1",
+      "url": "https://github.com/vllm-project/vllm/releases/tag/v0.27.1",
+      "published": "2026-08-11",
+      "publisher": "vllm-project/vllm",
+      "snippet": "This is a patch release on top of v0.27.0. - Support quantized DSpark Markov heads (#50424)",
+      "kind": "official_release"
+    },
+    {
+      "id": "S015",
+      "category": "kernel",
+      "title": "Dao-AILab/flash-attention fa4-v4.0.0.beta25",
+      "url": "https://github.com/Dao-AILab/flash-attention/releases/tag/fa4-v4.0.0.beta25",
+      "published": "2026-08-05",
+      "publisher": "Dao-AILab/flash-attention",
+      "snippet": "## What's Changed * Remove SM100 Functions from Hopper Flash Attention 3 by @ankutalev in https://github.com/Dao-AILab/flash-attention/pull/2746 * [CuTe,Sm100] Varlen Dynamic Persistent scheduler and metadata by @reubenconducts in https://github.com/Dao-AILab/flash-attention/pull/2559 * [AI] Add doc on debug methodology by @jayhshah in https://github.com/Dao-AILab/flash-attention/pull/2753 * [ROCm] Fix CK varlen_fwd binding argument mismatch by @hyoon1 in https://github.com/Dao-AILab/flash-attention/pull/2742 * [CuTe, SM100] Sparse MLA bwd: don't scatter dK/dV at -1 sentinel indices by @abcdabcd987 in https://github.com/Dao-AILab/flash-attention/pull/2755 ## New Contribut",
+      "kind": "official_release"
+    },
+    {
+      "id": "S016",
+      "category": "kernel",
+      "title": "Dao-AILab/flash-attention fa4-v4.0.0.beta26",
+      "url": "https://github.com/Dao-AILab/flash-attention/releases/tag/fa4-v4.0.0.beta26",
+      "published": "2026-08-12",
+      "publisher": "Dao-AILab/flash-attention",
+      "snippet": "## What's Changed * [CuTe,Bwd,Sm90] Fix: wait for bwd_preprocess on the block-sparse path, matching the dense path by @Fugoes in https://github.com/Dao-AILab/flash-attention/pull/2756 * [Cute, bwd, sm90/100/110] Support learnable sink in backward by @henrylhtsang in https://github.com/Dao-AILab/flash-attention/pull/2706 * [CuTe, FA4] Preserve first-tile flag during scheduler reconstruction by @dongxiao92 in https://github.com/Dao-AILab/flash-attention/pull/2705 * Fix duplicated word in layer norm comment by @cupkk in https://github.com/Dao-AILab/flash-attention/pull/2744 * [CuTe, SM100] Fix deadlock in varlen + block-sparse + SplitKV forward by @JiaxuanBai in https://gith",
+      "kind": "official_release"
+    },
+    {
+      "id": "S017",
+      "category": "kernel",
+      "title": "NVIDIA/cudnn-frontend v1.26.0 release",
+      "url": "https://github.com/NVIDIA/cudnn-frontend/releases/tag/v1.26.0",
+      "published": "2026-07-07",
+      "publisher": "NVIDIA/cudnn-frontend",
+      "snippet": "# cuDNN Frontend v1.26.0 Release Notes cuDNN Frontend v1.26.0 is the recommended version for cuDNN 9.24.0 and later releases. ## Updates to Graph API 🚀 🚀 **SDPA** - Added unified-engine FP8 and MXFP8 forward SDPA support (#301). Requires cuDNN 9.25.0 or later (#339). - SDPA backward with head dimension d=256 now uses the cuDNN-native path on cuDNN 9.23+, bypassing the OSS kernel path (#335). **Data types** - Added a new `BYTE_BOOLEAN` frontend data type (#302). Boolean tensors automatically map to `BYTE_BOOLEAN` when running against cuDNN 9.25 and later (#339). **Serialization and plan management** - `Graph::deserialize` now accepts an `enforce_precompiled` option to requ",
+      "kind": "official_release"
+    },
+    {
+      "id": "S018",
+      "category": "kernel",
+      "title": "NVIDIA/cudnn-frontend v1.27.0 release",
+      "url": "https://github.com/NVIDIA/cudnn-frontend/releases/tag/v1.27.0",
+      "published": "2026-08-06",
+      "publisher": "NVIDIA/cudnn-frontend",
+      "snippet": "# cuDNN Frontend v1.27.0 Release Notes cuDNN Frontend v1.27.0 is the recommended version for [cuDNN 9.24.0](https://docs.nvidia.com/deeplearning/cudnn/backend/latest/release-notes.html#cudnn-9-24-0) and later releases. ## New: Python-native `cudnn.pygraph` 🚀 🚀 `cudnn.pygraph` is now a **Python-native graph class** (#336). Graph structure — nodes, tensors, and parameters — lives in Python and is fully introspectable, while execution dispatches through **pluggable backends**: Python DSL engines and the cuDNN C++ backend. - **Graph IR** — an engine-agnostic op DAG whose input/output port names match the C++ pybind kwarg names everywhere. 100% of the C++ op surface is covered",
+      "kind": "official_release"
+    },
+    {
+      "id": "S019",
+      "category": "kernel",
+      "title": "flashinfer-ai/flashinfer Nightly Release v0.6.18-20260813",
+      "url": "https://github.com/flashinfer-ai/flashinfer/releases/tag/nightly-v0.6.18-20260813",
+      "published": "2026-08-13",
+      "publisher": "flashinfer-ai/flashinfer",
+      "snippet": "Automated nightly build for version 0.6.18 (dev20260813)",
+      "kind": "official_release"
+    },
+    {
+      "id": "S020",
+      "category": "kernel",
+      "title": "flashinfer-ai/flashinfer Nightly Release v0.6.18-20260814",
+      "url": "https://github.com/flashinfer-ai/flashinfer/releases/tag/nightly-v0.6.18-20260814",
+      "published": "2026-08-14",
+      "publisher": "flashinfer-ai/flashinfer",
+      "snippet": "Automated nightly build for version 0.6.18 (dev20260814)",
+      "kind": "official_release"
+    },
+    {
+      "id": "S021",
+      "category": "model",
+      "title": "deepseek-ai/DeepSeek-V3 v1.0.0",
+      "url": "https://github.com/deepseek-ai/DeepSeek-V3/releases/tag/v1.0.0",
+      "published": "2025-06-27",
+      "publisher": "deepseek-ai/DeepSeek-V3",
+      "snippet": "This release is created for archival purposes and DOI generation.",
+      "kind": "official_release"
+    },
+    {
+      "id": "S022",
+      "category": "agent",
+      "title": "AI编程工具降低开发门槛后，独立开发者的核心竞争力将转向何处？ - 80aj.com",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE84Zi14ZkNXT3ZMN19Wc082ZVJPWFJlWkgxNnRiMk9WRV82TW5KekR6bDhMelJuQlBneEVrdWd6d0xiMFhtY0lkRy1xcmZyY0U2MmEyNEVHMXNCNC1aa0JKczhaTkxIQTdScjd1NDlxVQ?oc=5",
+      "published": "Fri, 14 Aug 2026 07:51:24 GMT",
+      "publisher": "80aj.com",
+      "snippet": "AI编程工具降低开发门槛后，独立开发者的核心竞争力将转向何处？ 80aj.com",
+      "kind": "news_report"
+    },
+    {
+      "id": "S023",
+      "category": "agent",
+      "title": "DeepSeek突然下场！通用Agent的战局彻底乱了 - 新榜",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB2WEh3akg4UE1GdlhGeG1kVXVodUg0YklHYThQYmZRWmJGaVlmeE5BZFBoYVpYSS1zb2pyVDZsam10WF9VUktPOGRJU1M1UDMwWnY5N3d3?oc=5",
+      "published": "Fri, 14 Aug 2026 18:22:00 GMT",
+      "publisher": "新榜",
+      "snippet": "DeepSeek突然下场！通用Agent的战局彻底乱了 新榜",
+      "kind": "news_report"
+    },
+    {
+      "id": "S024",
+      "category": "agent",
+      "title": "OpenAI搬空Claude Code！用户家当一键进Codex，唯独带不走Claude - hub.baai.ac.cn",
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1GY0VHNDBGRUg1ZUJnM21XWTNoMVRCUmZTYnNLdVY0V1pwRWszS05QVWJwQnBHT2tULURtRnBSd2hBWldVMWx6Uw?oc=5",
+      "published": "Fri, 14 Aug 2026 03:40:00 GMT",
+      "publisher": "hub.baai.ac.cn",
+      "snippet": "OpenAI搬空Claude Code！用户家当一键进Codex，唯独带不走Claude hub.baai.ac.cn",
+      "kind": "news_report"
+    },
+    {
+      "id": "S025",
+      "category": "agent",
+      "title": "拒绝让 AI 背锅：从 StackOverflow 复制粘贴到大模型辅助编程的反思 - 80aj.com",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFByUko0Umc1ZVZQS003NDNoS05tVjgxZVQ2Zl9HNk9TN0JVQVNGMHl5MDBwOVRzbk9velFCWDdXTkZ1Zk5ZMGFLV3VJMEczeTVIUG1LRVpDazZPNzR5M2hpbl9jSlBjc0Vxa05IRw?oc=5",
+      "published": "Fri, 14 Aug 2026 05:36:34 GMT",
+      "publisher": "80aj.com",
+      "snippet": "拒绝让 AI 背锅：从 StackOverflow 复制粘贴到大模型辅助编程的反思 80aj.com",
+      "kind": "news_report"
+    },
+    {
+      "id": "S026",
+      "category": "china_chip",
+      "title": "寒王、摩王“期中考试”不及格？ - 36Kr",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9RVGdIdjNoRkstZFh4bUMxYzdacUlIVlRHaExYa1BpdzVCaTlScmZqN0lnVnFSalBsV0p1NFZKZ0lvMDR6RlJrNmpfVjBua2lhd0hZ?oc=5",
+      "published": "Thu, 13 Aug 2026 13:24:00 GMT",
+      "publisher": "36Kr",
+      "snippet": "寒王、摩王“期中考试”不及格？ 36Kr",
+      "kind": "news_report"
+    },
+    {
+      "id": "S027",
+      "category": "china_chip",
+      "title": "摩尔线程：国产GPU最接近\"翻过雪山\"的时刻 - 新浪财经",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQVHdRRkFkdWo3Q1J3aDAtU2Y5UzViejdoaDJlY0E5NHZJRUFWSEFpV3k1VGpGUGF3d2VmNkdiMkFYMjk3QUxpb3FtVTBQZXh0SFlpWWdiSTJFWWpvM0psUFJ2NUkwQnFDcjFWaGptNGNKT1IwYjVvcUpFZ1YycXo0TURua25KdEpTWnZkdFBvWlRhR081dTliR1YwVDYyUGoy?oc=5",
+      "published": "Thu, 13 Aug 2026 23:52:19 GMT",
+      "publisher": "新浪财经",
+      "snippet": "摩尔线程：国产GPU最接近\"翻过雪山\"的时刻 新浪财经",
+      "kind": "news_report"
+    },
+    {
+      "id": "S028",
+      "category": "infrastructure",
+      "title": "当大家都在抢 GPU，NEBIUS 已经开始挑客人了？ - Moomoo",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOMDcxNmZJM1FZZUZuakU0V3FmazFBSkRvV01IRmk4bGpMaTFwZ1Z2UG9IZGpNMkFtY1BsZWRjM1g1bFMtQm1DeWZVUWM1NnR3YVhPXzY1bzczNG1RNXdzejJ4X3k5eXUxSDg2bm1JZVNpSHhkZDdVbE9qbFhELWZVMEFDUHIzZTRjTExaZkt1N3pkUjBkbzdaVkNuQ2hZRGtCbGFuMkxJaGNmNXhodDd0ZS1XNjFLT19KcU8zRjh1RQ?oc=5",
+      "published": "Sat, 15 Aug 2026 11:38:54 GMT",
+      "publisher": "Moomoo",
+      "snippet": "当大家都在抢 GPU，NEBIUS 已经开始挑客人了？ Moomoo",
+      "kind": "news_report"
+    },
+    {
+      "id": "S029",
+      "category": "model",
+      "title": "独立研究团队：找到了，KIMI，蒸馏的实锤证据！但，DeepSeek，抓不到把柄 - 手机网易网",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5HYzFWRVVOU204YlFIeVJLLVBXWWk3Smd1QkZ4c244M09nYUZGekZqZFhaYk9VX0VwSTNQLXA5azRuYXBLRVBJU25Lb0FyMk91ZTF6Sk9hNXItZUZfMVAzRlJB?oc=5",
+      "published": "Fri, 14 Aug 2026 02:42:43 GMT",
+      "publisher": "手机网易网",
+      "snippet": "独立研究团队：找到了，KIMI，蒸馏的实锤证据！但，DeepSeek，抓不到把柄 手机网易网",
+      "kind": "news_report"
+    },
+    {
+      "id": "S030",
+      "category": "model",
+      "title": "谷歌AI人事动荡：全栈是护城河，也是纷争的起源|Gemini 3.5 Pro|Gemini 4|DeepSeek|OpenAI|Kimi_手机新浪网 - 新浪财经",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPUk4zNU1aVGd4elJiTXdacUQyRW4tSVJZNE9hMUpuRWpTc0hBOTZrSHVWVGVlaExZRDZzSm4wS0VTcmxhZ1FCRGJmWE0wUFVoRVNlTFBKLXp1X0xycmZSVmNwUFNsY1NPdm5aVWV2c2phVHk1MFRNQnFJanB2WUg0YnZwSlhYT0g5NUNWVHhwUXRnQnZkOTZIOEhhaHBJN003TTJnQmIxQQ?oc=5",
+      "published": "Sat, 15 Aug 2026 00:35:25 GMT",
+      "publisher": "新浪财经",
+      "snippet": "谷歌AI人事动荡：全栈是护城河，也是纷争的起源|Gemini 3.5 Pro|Gemini 4|DeepSeek|OpenAI|Kimi_手机新浪网 新浪财经",
+      "kind": "news_report"
+    }
+  ]
+}

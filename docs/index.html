@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="AI 芯片、推理框架、算子库、开放模型与 Agent 每日情报"><title>前沿计算情报日报 · 2026-08-16</title>
+<style>
+:root{--paper:#f2eee4;--paper2:#faf7ef;--ink:#191814;--muted:#6b675e;--line:#cbc3b4;--rust:#a13b24;--serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;--sans:"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.72 var(--sans)}h1,h2,h3{font-family:var(--serif);text-wrap:balance}p{text-wrap:pretty}a{color:inherit;text-underline-offset:3px}a:hover{color:var(--rust)}.mast{background:var(--paper2);border-top:7px solid var(--ink);border-bottom:1px solid var(--ink)}.mast-in,main,.nav-in,.foot-in{max-width:1240px;margin:auto}.mast-in{padding:27px 30px}.eyebrow{display:flex;justify-content:space-between;color:var(--rust);font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}h1{font-size:clamp(42px,7vw,92px);line-height:.94;letter-spacing:-.055em;margin:30px 0 12px}.date{color:var(--muted)}nav{position:sticky;top:0;z-index:5;background:#f2eee4ef;border-bottom:1px solid var(--line);backdrop-filter:blur(9px)}.nav-in{display:flex;gap:6px;overflow:auto;padding:8px 30px}.nav-in a{padding:10px;text-decoration:none;white-space:nowrap;font-size:12px}main{padding:45px 30px 90px}.lead{display:grid;grid-template-columns:1.25fr .75fr;gap:64px}.lead h2{font-size:clamp(31px,4vw,54px);line-height:1.08;margin:0 0 18px}.lead-text{font:20px/1.65 var(--serif);color:#3e3933}.brief{border-top:3px solid var(--ink)}.brief h3{margin:13px 0 7px}.brief ul{list-style:none;padding:0;margin:0}.brief li{border-top:1px solid var(--line)}.brief li:first-child{border:0}.brief a{display:block;padding:10px 2px;text-decoration:none;font-size:14px}.brief b{color:var(--rust);margin-right:8px}.section-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);margin:65px 0 22px;padding-bottom:8px}.section-head h2{font-size:29px;margin:0}.section-head span{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{background:var(--paper2);border-top:3px solid var(--ink);padding:24px}.card h3{font-size:23px;line-height:1.25;margin:11px 0}.card p{color:#49453e}.tag{display:inline-block;border:1px solid;padding:2px 7px;font-size:11px;font-weight:800;letter-spacing:.08em}.tag.fact{color:#2d5d4d}.tag.report{color:#565c7c}.tag.rumor{color:var(--rust)}.tag.paper{color:#594b77}.tag.inference{color:#705a2d}.facts,.impact{padding-left:13px;border-left:3px solid var(--line);font-size:14px}.impact{border-color:var(--rust)}.facts b,.impact b{display:block;color:var(--ink)}.sources{border-top:1px solid var(--line);margin-top:16px;padding-top:11px;font-size:12px;color:var(--muted)}.sources a{margin-right:12px}.deep{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.essay{background:#22231f;color:#eee9dd;padding:27px}.essay h3{font-size:23px}.essay p{color:#cbc5b9}.essay .sources{border-color:#555}.watch{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}.watch-item{padding:20px;border-left:1px solid var(--line)}.watch-item:first-child{border-left:0}.watch-item>div{color:var(--rust);font-size:12px;font-weight:800}.watch-item h3{font-size:18px}.watch-item p{font-size:13px;color:var(--muted)}.archive{display:flex;flex-wrap:wrap;gap:13px}.method{margin-top:60px;border-top:1px solid var(--ink);padding-top:22px;color:var(--muted);font-size:13px}footer{background:var(--ink);color:#bbb}.foot-in{padding:23px 30px;display:flex;justify-content:space-between}@media(max-width:760px){body{font-size:16px}.mast-in,.nav-in,main{padding-left:18px;padding-right:18px}.lead{grid-template-columns:1fr;gap:25px}.lead-text{font-size:17px}.cards,.deep{grid-template-columns:1fr}.watch{grid-template-columns:1fr}.watch-item{border-left:0;border-top:1px solid var(--line)}.section-head{margin-top:50px}}@media print{nav{display:none}body,.mast{background:white}.card,.essay{break-inside:avoid}}
+</style></head><body>
+<header class="mast"><div class="mast-in"><div class="eyebrow"><span>Private Intelligence Brief</span><span>AI · Compute · Systems · Markets</span></div><h1>前沿计算<br>情报日报</h1><div class="date">2026-08-16 · 北京时间早间版 · 降级编辑 · 生成于 2026-08-16 09:21 CST</div></div></header>
+<nav><div class="nav-in"><a href="#top">今日五条</a><a href="#china_chip">国产 GPU / 加速器</a><a href="#infrastructure">AI 基础设施</a><a href="#framework">推理框架</a><a href="#kernel">算子库</a><a href="#model">开放模型</a><a href="#agent">Agent 与开发工具</a><a href="#deep">深度</a><a href="#watch">跟踪</a><a href="#archive">归档</a></div></nav>
+<main><section class="lead" id="top"><div><h2>本期使用降级编辑模式：保留官方发布、论文和新闻源，并明确减少推断。待 GitHub Models 恢复后，将自动恢复跨来源去重、影响判断与深度解读。</h2><p class="lead-text">每天筛选最近 24–72 小时信号；事实、报道、传闻、论文主张与编辑推断分开标注。点击右侧结论可直接跳到详情。</p></div><aside class="brief"><h3>30 秒结论</h3><ul><li><a href="#item-1"><b>01</b>寒王、摩王“期中考试”不及格？ - 36Kr</a></li><li><a href="#item-2"><b>02</b>摩尔线程：国产GPU最接近&quot;翻过雪山&quot;的时刻 - 新浪财经</a></li><li><a href="#item-3"><b>03</b>当大家都在抢 GPU，NEBIUS 已经开始挑客人了？ - Moomoo</a></li><li><a href="#item-4"><b>04</b>NVIDIA/TensorRT-LLM v1.3.0rc23</a></li><li><a href="#item-5"><b>05</b>NVIDIA/TensorRT-LLM v1.3.0rc24</a></li></ul></aside></section>
+<section id="china_chip"><div class="section-head"><h2>国产 GPU / 加速器</h2><span>2 signals</span></div><div class="cards"><article class="card" id="item-1">
+              <span class="tag report">报道</span>
+              <h3>寒王、摩王“期中考试”不及格？ - 36Kr</h3>
+              <p>寒王、摩王“期中考试”不及格？ 36Kr</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：Thu, 13 Aug 2026 13:24:00 GMT；来源：36Kr</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9RVGdIdjNoRkstZFh4bUMxYzdacUlIVlRHaExYa1BpdzVCaTlScmZqN0lnVnFSalBsV0p1NFZKZ0lvMDR6RlJrNmpfVjBua2lhd0hZ?oc=5" target="_blank" rel="noopener">S026 · 36Kr</a></div>
+            </article><article class="card" id="item-2">
+              <span class="tag report">报道</span>
+              <h3>摩尔线程：国产GPU最接近&quot;翻过雪山&quot;的时刻 - 新浪财经</h3>
+              <p>摩尔线程：国产GPU最接近&quot;翻过雪山&quot;的时刻 新浪财经</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：Thu, 13 Aug 2026 23:52:19 GMT；来源：新浪财经</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxQVHdRRkFkdWo3Q1J3aDAtU2Y5UzViejdoaDJlY0E5NHZJRUFWSEFpV3k1VGpGUGF3d2VmNkdiMkFYMjk3QUxpb3FtVTBQZXh0SFlpWWdiSTJFWWpvM0psUFJ2NUkwQnFDcjFWaGptNGNKT1IwYjVvcUpFZ1YycXo0TURua25KdEpTWnZkdFBvWlRhR081dTliR1YwVDYyUGoy?oc=5" target="_blank" rel="noopener">S027 · 新浪财经</a></div>
+            </article></div></section><section id="infrastructure"><div class="section-head"><h2>AI 基础设施</h2><span>1 signals</span></div><div class="cards"><article class="card" id="item-3">
+              <span class="tag report">报道</span>
+              <h3>当大家都在抢 GPU，NEBIUS 已经开始挑客人了？ - Moomoo</h3>
+              <p>当大家都在抢 GPU，NEBIUS 已经开始挑客人了？ Moomoo</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：Sat, 15 Aug 2026 11:38:54 GMT；来源：Moomoo</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxOMDcxNmZJM1FZZUZuakU0V3FmazFBSkRvV01IRmk4bGpMaTFwZ1Z2UG9IZGpNMkFtY1BsZWRjM1g1bFMtQm1DeWZVUWM1NnR3YVhPXzY1bzczNG1RNXdzejJ4X3k5eXUxSDg2bm1JZVNpSHhkZDdVbE9qbFhELWZVMEFDUHIzZTRjTExaZkt1N3pkUjBkbzdaVkNuQ2hZRGtCbGFuMkxJaGNmNXhodDd0ZS1XNjFLT19KcU8zRjh1RQ?oc=5" target="_blank" rel="noopener">S028 · Moomoo</a></div>
+            </article></div></section><section id="framework"><div class="section-head"><h2>推理框架</h2><span>3 signals</span></div><div class="cards"><article class="card" id="item-4">
+              <span class="tag fact">事实</span>
+              <h3>NVIDIA/TensorRT-LLM v1.3.0rc23</h3>
+              <p>- Known Issues - Deepseek-V4-Pro can hang on GB300 disagg setups. - DeepSeek-R1 NVFP4 multi-GPU (PP4 + MTP) can crash with an MPI worker exit during execution (seen on GB300). - DeepSeek-V3-Lite BF16 + chunked prefill (Python scheduler) can hang / fail to complete. - Qwen MoE multi-LoRA (routed experts, varying ranks, eager) can fail during sampling. - Gemma3-1B FP8 prequantized with torch.compile can fail during CUDA graph capture (PyTorch CUDA allocator internal assert). - Qwen3.5-35B-A3B BF16 (CUTLASS, TP1 on A100) can hit CUDA OOM. - Model Support - Load DeepSeek V4 mixed-precision NVFP4 checkpoints (#16433) - Enable W4A8 checkpoint loading for Gemma4 K=V layers (#167</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-07-31；来源：NVIDIA/TensorRT-LLM</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.3.0rc23" target="_blank" rel="noopener">S007 · NVIDIA/TensorRT-LLM</a></div>
+            </article><article class="card" id="item-5">
+              <span class="tag fact">事实</span>
+              <h3>NVIDIA/TensorRT-LLM v1.3.0rc24</h3>
+              <p>- Known Issues - Workloads combining `torch.compile` with CUDA graphs can fail during initialization or inference with allocator assertions, missing outputs, or illegal memory accesses. - MLA models using MTP with multi-stream or piecewise CUDA graphs on SM120 can asynchronously crash with an illegal memory access. - Workloads using KVCacheManagerV2 may intermittently report a teardown failure after otherwise successful inference; this is observed with DeepSeek-V4-Flash. - Diffusion image and video pipelines can show output-quality regressions when conditioning defaults or fused normalization change numerical behavior; this is observed with Cosmos 3 Nano T2I/T2V and Wan 2</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-08-12；来源：NVIDIA/TensorRT-LLM</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.3.0rc24" target="_blank" rel="noopener">S008 · NVIDIA/TensorRT-LLM</a></div>
+            </article><article class="card" id="item-6">
+              <span class="tag fact">事实</span>
+              <h3>pytorch/pytorch PyTorch 2.12.1 Release, bug fix release</h3>
+              <p>This release is meant to fix the following regressions and silent correctness issues: ## Regression fixes - Fix nondeterministic outputs in test_batch_invariance with FLASH_ATTN on NVIDIA B200 GPUs ([#181248](https://github.com/pytorch/pytorch/issues/181248)), fixed by updating Triton to 3.7.1 ([#186814](https://github.com/pytorch/pytorch/pull/186814)) - Fix illegal memory access in the Triton convolution2d_bwd_weight kernel on B100/B200 (sm100) GPUs ([#187081](https://github.com/pytorch/pytorch/issues/187081)), fixed by updating Triton to 3.7.1 ([#186814](https://github.com/pytorch/pytorch/pull/186814)) - Fix fill_ on byte-dtype views with misaligned storage offset ([#18</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-06-18；来源：pytorch/pytorch</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/pytorch/pytorch/releases/tag/v2.12.1" target="_blank" rel="noopener">S009 · pytorch/pytorch</a></div>
+            </article></div></section><section id="kernel"><div class="section-head"><h2>算子库</h2><span>3 signals</span></div><div class="cards"><article class="card" id="item-7">
+              <span class="tag fact">事实</span>
+              <h3>Dao-AILab/flash-attention fa4-v4.0.0.beta25</h3>
+              <p>## What&#x27;s Changed * Remove SM100 Functions from Hopper Flash Attention 3 by @ankutalev in https://github.com/Dao-AILab/flash-attention/pull/2746 * [CuTe,Sm100] Varlen Dynamic Persistent scheduler and metadata by @reubenconducts in https://github.com/Dao-AILab/flash-attention/pull/2559 * [AI] Add doc on debug methodology by @jayhshah in https://github.com/Dao-AILab/flash-attention/pull/2753 * [ROCm] Fix CK varlen_fwd binding argument mismatch by @hyoon1 in https://github.com/Dao-AILab/flash-attention/pull/2742 * [CuTe, SM100] Sparse MLA bwd: don&#x27;t scatter dK/dV at -1 sentinel indices by @abcdabcd987 in https://github.com/Dao-AILab/flash-attention/pull/2755 ## New Contribut</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-08-05；来源：Dao-AILab/flash-attention</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/Dao-AILab/flash-attention/releases/tag/fa4-v4.0.0.beta25" target="_blank" rel="noopener">S015 · Dao-AILab/flash-attention</a></div>
+            </article><article class="card" id="item-8">
+              <span class="tag fact">事实</span>
+              <h3>Dao-AILab/flash-attention fa4-v4.0.0.beta26</h3>
+              <p>## What&#x27;s Changed * [CuTe,Bwd,Sm90] Fix: wait for bwd_preprocess on the block-sparse path, matching the dense path by @Fugoes in https://github.com/Dao-AILab/flash-attention/pull/2756 * [Cute, bwd, sm90/100/110] Support learnable sink in backward by @henrylhtsang in https://github.com/Dao-AILab/flash-attention/pull/2706 * [CuTe, FA4] Preserve first-tile flag during scheduler reconstruction by @dongxiao92 in https://github.com/Dao-AILab/flash-attention/pull/2705 * Fix duplicated word in layer norm comment by @cupkk in https://github.com/Dao-AILab/flash-attention/pull/2744 * [CuTe, SM100] Fix deadlock in varlen + block-sparse + SplitKV forward by @JiaxuanBai in https://gith</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-08-12；来源：Dao-AILab/flash-attention</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/Dao-AILab/flash-attention/releases/tag/fa4-v4.0.0.beta26" target="_blank" rel="noopener">S016 · Dao-AILab/flash-attention</a></div>
+            </article><article class="card" id="item-9">
+              <span class="tag fact">事实</span>
+              <h3>NVIDIA/cudnn-frontend v1.26.0 release</h3>
+              <p># cuDNN Frontend v1.26.0 Release Notes cuDNN Frontend v1.26.0 is the recommended version for cuDNN 9.24.0 and later releases. ## Updates to Graph API 🚀 🚀 **SDPA** - Added unified-engine FP8 and MXFP8 forward SDPA support (#301). Requires cuDNN 9.25.0 or later (#339). - SDPA backward with head dimension d=256 now uses the cuDNN-native path on cuDNN 9.23+, bypassing the OSS kernel path (#335). **Data types** - Added a new `BYTE_BOOLEAN` frontend data type (#302). Boolean tensors automatically map to `BYTE_BOOLEAN` when running against cuDNN 9.25 and later (#339). **Serialization and plan management** - `Graph::deserialize` now accepts an `enforce_precompiled` option to requ</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-07-07；来源：NVIDIA/cudnn-frontend</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/NVIDIA/cudnn-frontend/releases/tag/v1.26.0" target="_blank" rel="noopener">S017 · NVIDIA/cudnn-frontend</a></div>
+            </article></div></section><section id="model"><div class="section-head"><h2>开放模型</h2><span>3 signals</span></div><div class="cards"><article class="card" id="item-10">
+              <span class="tag fact">事实</span>
+              <h3>deepseek-ai/DeepSeek-V3 v1.0.0</h3>
+              <p>This release is created for archival purposes and DOI generation.</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2025-06-27；来源：deepseek-ai/DeepSeek-V3</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/deepseek-ai/DeepSeek-V3/releases/tag/v1.0.0" target="_blank" rel="noopener">S021 · deepseek-ai/DeepSeek-V3</a></div>
+            </article><article class="card" id="item-11">
+              <span class="tag report">报道</span>
+              <h3>独立研究团队：找到了，KIMI，蒸馏的实锤证据！但，DeepSeek，抓不到把柄 - 手机网易网</h3>
+              <p>独立研究团队：找到了，KIMI，蒸馏的实锤证据！但，DeepSeek，抓不到把柄 手机网易网</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：Fri, 14 Aug 2026 02:42:43 GMT；来源：手机网易网</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE5HYzFWRVVOU204YlFIeVJLLVBXWWk3Smd1QkZ4c244M09nYUZGekZqZFhaYk9VX0VwSTNQLXA5azRuYXBLRVBJU25Lb0FyMk91ZTF6Sk9hNXItZUZfMVAzRlJB?oc=5" target="_blank" rel="noopener">S029 · 手机网易网</a></div>
+            </article><article class="card" id="item-12">
+              <span class="tag report">报道</span>
+              <h3>谷歌AI人事动荡：全栈是护城河，也是纷争的起源|Gemini 3.5 Pro|Gemini 4|DeepSeek|OpenAI|Kimi_手机新浪网 - 新浪财经</h3>
+              <p>谷歌AI人事动荡：全栈是护城河，也是纷争的起源|Gemini 3.5 Pro|Gemini 4|DeepSeek|OpenAI|Kimi_手机新浪网 新浪财经</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：Sat, 15 Aug 2026 00:35:25 GMT；来源：新浪财经</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxPUk4zNU1aVGd4elJiTXdacUQyRW4tSVJZNE9hMUpuRWpTc0hBOTZrSHVWVGVlaExZRDZzSm4wS0VTcmxhZ1FCRGJmWE0wUFVoRVNlTFBKLXp1X0xycmZSVmNwUFNsY1NPdm5aVWV2c2phVHk1MFRNQnFJanB2WUg0YnZwSlhYT0g5NUNWVHhwUXRnQnZkOTZIOEhhaHBJN003TTJnQmIxQQ?oc=5" target="_blank" rel="noopener">S030 · 新浪财经</a></div>
+            </article></div></section><section id="agent"><div class="section-head"><h2>Agent 与开发工具</h2><span>3 signals</span></div><div class="cards"><article class="card" id="item-13">
+              <span class="tag fact">事实</span>
+              <h3>anthropics/claude-code v2.1.232</h3>
+              <p>## What&#x27;s changed - Subagent forking is now on by default: a `subagent_type: &quot;fork&quot;` subagent inherits the full conversation and prompt cache, and non-teammate agent spawns in interactive sessions now run in the background by default - Type `@` in the prompt to mention another Claude session by name; Claude then uses `SendMessage` to reach that session directly - `SendMessage` now delivers to a bare name that exactly matches one live session, instead of asking to confirm with a ref first - Interactive sessions on one machine now keep unique names: starting or renaming a session to a name another live session already uses gives it a `name-word-word` variant and tells you -</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-08-13；来源：anthropics/claude-code</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.232" target="_blank" rel="noopener">S001 · anthropics/claude-code</a></div>
+            </article><article class="card" id="item-14">
+              <span class="tag fact">事实</span>
+              <h3>anthropics/claude-code v2.1.233</h3>
+              <p>## What&#x27;s changed - Added GitLab merge request URL support to the `--worktree` flag and the `claude agents` view (where MRs display as `!N`) - Added an opt-in `forward_user_identity` apps gateway setting on Anthropic upstreams that sends the signed-in user&#x27;s identity as headers, so a proxy behind the gateway can attribute spend per user - Added opt-in memory cgroup support for Bash tool commands on Linux (`CLAUDE_CODE_TOOL_MEMORY_LIMIT`) so a runaway build can&#x27;t stall the session - Added `CLAUDE_CODE_WEBFETCH_CACHE_TTL_MS` environment variable to configure the WebFetch session URL cache TTL (default unchanged: 15 minutes) - Fixed cloud sessions occasionally being marked a</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-08-14；来源：anthropics/claude-code</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.233" target="_blank" rel="noopener">S002 · anthropics/claude-code</a></div>
+            </article><article class="card" id="item-15">
+              <span class="tag fact">事实</span>
+              <h3>earendil-works/pi v0.84.1</h3>
+              <p>### New Features - **Qwen Token Plan Individual** — Use the built-in provider for models documented for Individual subscriptions. See [API Keys](https://github.com/earendil-works/pi/blob/v0.84.1/packages/coding-agent/docs/providers.md#api-keys). - **Authentication readiness checks** — Use `pi auth check` to verify provider or model credentials, optionally emitting the resolved credential. - **Improved fullscreen interaction** — Select words and paragraphs with multiple clicks and configure half-page transcript scrolling. See [TUI Fullscreen Viewport](https://github.com/earendil-works/pi/blob/v0.84.1/packages/coding-agent/docs/keybindings.md#tui-fullscreen-viewport). - **T</p>
+              <p class="facts"><b>关键事实</b>发布/收录时间：2026-08-07；来源：earendil-works/pi</p>
+              <p class="impact"><b>为什么重要</b>该信号进入持续跟踪池；在出现官方数字或独立复现前，不做进一步因果推断。</p>
+              <div class="sources"><a href="https://github.com/earendil-works/pi/releases/tag/v0.84.1" target="_blank" rel="noopener">S003 · earendil-works/pi</a></div>
+            </article></div></section>
+<section id="deep"><div class="section-head"><h2>深度解读</h2><span>working theses</span></div><div class="deep"><article class="essay"><h3>01｜模型—框架—算子协同</h3><p>新模型的可部署性取决于框架适配、低精度正确性、KV 管理和算子覆盖，而不只取决于模型榜单。</p><div class="sources"><span>编辑分析 / 暂无外部引用</span></div></article><article class="essay"><h3>02｜利用率是虚拟新增供给</h3><p>在电力和建设周期受限时，投机解码、缓存、量化与调度优化往往比新建机房更快形成有效算力。</p><div class="sources"><span>编辑分析 / 暂无外部引用</span></div></article><article class="essay"><h3>03｜事实与归因分开</h3><p>价格、版本和论文数字可以记录；因果关系、收入兑现和泛化效果必须等待更强证据。</p><div class="sources"><span>编辑分析 / 暂无外部引用</span></div></article></div></section>
+<section id="watch"><div class="section-head"><h2>值得跟踪</h2><span>next signals</span></div><div class="watch"><article class="watch-item"><div>每日</div><h3>推理框架与算子库</h3><p>检查 release、breaking changes 与正确性修复</p></article><article class="watch-item"><div>每日</div><h3>开放模型权重</h3><p>检查许可、模型卡与部署配方</p></article><article class="watch-item"><div>每周</div><h3>推理加速技术</h3><p>复盘投机解码、KV、量化和调度的可复现收益</p></article><article class="watch-item"><div>持续</div><h3>GPU 与基础设施</h3><p>跟踪交付、电力、资本开支与政策约束</p></article></div></section>
+<section id="archive"><div class="section-head"><h2>历史归档</h2><span>latest first</span></div><div class="archive"><a href="/daily/archive/2026-08-16.html">2026-08-16</a></div></section>
+<section class="method" id="method"><b>方法：</b>官方发布与监管材料优先，其次是论文原文和可信媒体。GitHub Release 是事实，但其中 benchmark 仍属于项目方口径；arXiv 数字属于作者报告。新闻标题与行情同时出现不代表因果。页面仅用于研究，不构成投资建议。</section></main>
+<footer><div class="foot-in"><b>Daily AI Intelligence</b><span><a href="https://github.com/GonChen/daily">Source on GitHub</a></span></div></footer></body></html>
