@@ -19,6 +19,7 @@
 3. 当天页面写入 `docs/archive/YYYY-MM-DD.html`，研究底稿写入 `research/`，`docs/index.html` 始终指向最新版。
 4. `docs/archive/index.html` 保存按日期倒序的摘要索引；每次发布都要新增当期条目并检查链接。
 5. Codex 提交并推送更新后，GitHub Actions 只负责部署 `docs/` 到 GitHub Pages，不调用任何模型。
+6. 采集采用“新搜索优先、固定雷达兜底”：每天先从当日重新发起的跨主题搜索发现候选，再用官方仓库、Blog、Release 和监管文件核验；固定地址不能机械占据主内容。
 
 > 这是本地 Codex 自动任务：计划运行时电脑需保持开机，并让 Codex 可运行。若需要不依赖本机的纯云端运行，可再切回 GitHub Actions + 模型 API。
 
@@ -27,6 +28,8 @@
 在 Codex 中可以随时手动运行同一日报任务；仓库的 **Actions → Publish Daily Brief to Pages → Run workflow** 只会重新发布现有页面。
 
 编辑时先复制 `templates/daily-template.html`，替换日期、事实、来源与编辑判断；保留 Executive readout、30 秒结论、分类雷达、推理加速路线图、深度解读和跟踪清单。发布前检查全部内部锚点、外链、桌面与手机布局。
+
+具体的搜索配额、去重规则和 DeepSeek 官方 GitHub 雷达见 [templates/source-policy.md](templates/source-policy.md)。
 
 2026-08-16 的原始高质量报告同时保存在 `docs/archive/2026-08-16.html`，并作为模板冻结保存。
 
