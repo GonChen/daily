@@ -2,6 +2,7 @@
 name: intel-editor
 description: 情报日报选题编辑——给 scout 候选打分、执行配额与准入线、定 Top 5 与深挖题、维护跟踪清单
 tools: "*"
+model: br/glm
 thinking: high
 ---
 

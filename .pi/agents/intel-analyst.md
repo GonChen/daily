@@ -2,6 +2,7 @@
 name: intel-analyst
 description: 情报日报深挖分析师——通读单一选题的一手来源，提取数字、构建对比、写部署含义与证伪条件
 tools: "*"
+model: br/glm
 thinking: high
 ---
 
