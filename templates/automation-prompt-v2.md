@@ -34,7 +34,7 @@ manifest 为 8 个任务数组，每个 `{"agent": "intel-scout", "cwd": "<repo>
 4. **inference-systems**：推理框架与算法（投机解码、KV cache、PD 分离、量化 MoE、调度）。
 5. **papers-oss**：arXiv 新论文、开源实现、可复现 benchmark。
 6. **china-industry**：中文公司一手信号（公告、财报、开源、招聘、开发者实测）。
-7. **community**：非官方渠道一手信号（X/Twitter、Reddit、HN、V2EX、知乎、B站），找从业者复现、事故、争论。
+7. **community**：非官方渠道一手信号（X/Twitter、Reddit、HN、V2EX、知乎、B站），找从业者复现、事故、争论。X/Twitter 降级链：`twitter search` 若 404（ClientTransaction 上游故障），改用稳定命令 `twitter user-posts @账号` 扫 watchlist（vLLM/SGLang/FlashInfer/DeepSeek/TRT-LLM 维护者、GPU/infra 分析师），单条公开推文用 `r.jina.ai/<URL>` 读取；装了 OpenCLI 时优先 `opencli twitter search`。
 8. **deepseek-radar**：https://github.com/deepseek-ai 组织按 pushed_at/release/tag/PR merge/README diff 扫描（deepseek-harness、DeepSeek-V3/R1/OCR-2、FlashMLA、DeepGEMM、TileKernels、DeepSpec、DeepEP、EPLB/LPLB、DualPipe、3FS、smallpond/open-infra-index），并查其在 vLLM、SGLang、TensorRT-LLM、FlashInfer 的集成 PR；RC 逐日 bump 不算实质变化。
 
 每个 prompt 必须包含：日期窗口（最近 24–72 小时，必要时一周）、dedup.md 路径、分配的角度、输出路径 `research/pipeline/<DATE>/<bucket>.md`。失败线程重试一次；两次失败记录原因并继续。
