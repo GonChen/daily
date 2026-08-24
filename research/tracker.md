@@ -12,3 +12,8 @@
 | FlashInfer SM100/SM103 VSA | 2026-08-24 | stable release、独立复现、更多 GPU/模型的端到端生成数据 | open |
 | FlashInfer W4A16 dense GEMM autotune 权衡 | 2026-08-24 | stable release、B200/SM100 复测、端到端吞吐与冷启动 ROI | open |
 | Agent 请求语义：代理重试与工具解析 | 2026-08-24 | 任务成功率、误调用率、重复请求率、实际计费回归 | open |
+| NVIDIA AgentX 机架级 throughput/MW | 2026-08-25 | 可复现实验配置、独立第三方复测、相同模型/功耗/拓扑对比与正式可用性 | open |
+| SGLang gfx950 SWA attention 下界 | 2026-08-25 | stable release、MI355X/其他模型复测、#34461 与 #34462 合并后的 served A/B | open |
+| vLLM batch-invariant persistent matmul | 2026-08-25 | 生产 request mix 下的 cold-start 摊销、更多架构/shape、稳定 release | open |
+| FlashInfer SM120 NVFP4 SVDQuant LoRA | 2026-08-25 | cold-cache/非 graph 与模型端到端测量、更多 GPU、stable release | open |
+| vLLM DeepSeek V4 live-adapter LoRA | 2026-08-25 | 更长训练、更多 rank/adapter swap 的 merge=False 等价与吞吐/显存数据 | open |
