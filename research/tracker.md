@@ -17,3 +17,9 @@
 | vLLM batch-invariant persistent matmul | 2026-08-25 | 生产 request mix 下的 cold-start 摊销、更多架构/shape、稳定 release | open |
 | FlashInfer SM120 NVFP4 SVDQuant LoRA | 2026-08-25 | cold-cache/非 graph 与模型端到端测量、更多 GPU、stable release | open |
 | vLLM DeepSeek V4 live-adapter LoRA | 2026-08-25 | 更长训练、更多 rank/adapter swap 的 merge=False 等价与吞吐/显存数据 | open |
+| SGLang DP FlashInfer EXTEND rank-local warmup | 2026-08-26 | stable release、不同 DP/shape 下的 cold/warm ROI、C128 高 CV 根因与独立复测 | open |
+| vLLM DeepSeek V4 FlashInfer MoE-EP | 2026-08-26 | sequence-parallel stack、跨 checkpoint accuracy、SM100/EP8/NVSHMEM 约束下的独立 serving 复测 | open |
+| vLLM TP batch invariance fallback | 2026-08-26 | #50505 deterministic path 的实际吞吐、长 prompt/更大 TP 的 bit-exact 复测 | open |
+| FlashInfer SM120 NVFP4 attention LSE API | 2026-08-26 | 下游 `return_lse` 兼容性、同 run baseline、冷/端到端 attention 数据 | open |
+| DeepSeek V4 shared-expert fusion topology gate | 2026-08-26 | EP per-rank shared slot 实现、稳定 CI、GB200 TP4 之外的 TTFT/ITL 数据 | open |
+| Speculative sampling request admission | 2026-08-26 | TensorRT-LLM fail-closed 后的 admission 失败率、非 speculative fallback 和用户影响 | open |
