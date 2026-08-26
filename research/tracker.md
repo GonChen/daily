@@ -23,3 +23,10 @@
 | FlashInfer SM120 NVFP4 attention LSE API | 2026-08-26 | 下游 `return_lse` 兼容性、同 run baseline、冷/端到端 attention 数据 | open |
 | DeepSeek V4 shared-expert fusion topology gate | 2026-08-26 | EP per-rank shared slot 实现、稳定 CI、GB200 TP4 之外的 TTFT/ITL 数据 | open |
 | Speculative sampling request admission | 2026-08-26 | TensorRT-LLM fail-closed 后的 admission 失败率、非 speculative fallback 和用户影响 | open |
+| Hopper MXFP4 MoE scale OOB guard | 2026-08-27 | SM100 分支 sanitizer、主 CI 全绿、+14 MB capacity impact 与独立 gpt-oss serving 复测 | open |
+| vLLM DP pause device-idle contract | 2026-08-27 | #52957 burst 缩减的合入、更多 DP/EP 的 resolve-to-idle/p99/死锁复测、非 torch.accelerator 后端覆盖 | open |
+| SGLang TP FlashInfer autotune consensus | 2026-08-27 | 大 TP cold-tuning ROI、cache digest 漏变量、真实 request mix 的 p99 与 tactic divergence | open |
+| FlashInfer SM12x MSA chunked top-k | 2026-08-27 | 端到端 serving、非 MTP/不同 batch、scratch 压力、SM120/121 独立复测 | open |
+| FlashInfer Cake KDA piece-persistent M128 | 2026-08-27 | CUDA Graph/explicit workspace fallback 比率、29-shape 独立 campaign、服务 TTFT/ITL 与状态语义复测 | open |
+| FP8 K-cache token_id int64 overflow guard | 2026-08-27 | <4.2M tokens 的独立回绕复现、DSA/DSV4 之外同型 kernel 覆盖、长上下文服务 A/B | open |
+| TensorRT-LLM KV host-tier world-rank consensus | 2026-08-27 | 用户工作负载/性能数字、attention-DP 子组一致性、fallback/rebuild 的事故与尾时延复测 | open |

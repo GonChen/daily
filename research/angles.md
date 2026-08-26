@@ -8,6 +8,15 @@
 
 ## 已用
 
+- 2026-08-27 · chips：哪个新 GPU、互连或精度路径本周暴露出生成请求中未被峰值表格捕获的拥塞、兼容或损失？
+- 2026-08-27 · infra-capital：哪个 AI 数据中心承诺本周因并网、租约、PUE 或设备交付获得或失去可验证约束？
+- 2026-08-27 · models-agents：哪个 agent 或 runtime 本周让权限、恢复、队列或状态传播变成可测的契约？
+- 2026-08-27 · inference-systems：哪种 fast path 本周因 priority、oversubscription、preemption 或 P99 而需要新增隔离？
+- 2026-08-27 · papers-oss：哪个开源系统本周给出 request-level 或 cluster-level 的可复现性，而不只是 kernel 测量？
+- 2026-08-27 · china-industry：哪个中国模型或 GPU 推理路径暴露出确定性、格式或运行时兼容性边界？
+- 2026-08-27 · community：哪位维护者公开了带可行动数字的 CI 回滚、回归或部署事故？
+- 2026-08-27 · deepseek-radar：DeepSeek 生态集成本周可见的负载形状或通信交换约束是什么？
+
 - 2026-08-26 · chips：哪一项 scale-up / scale-out 互连或精度路径在本周被证明受形状、拓扑或数值门限限制？
 - 2026-08-26 · infra-capital：哪个 AI 基建项目在本周从融资或容量承诺进入交付、用电或合同的可核验条件？
 - 2026-08-26 · models-agents：哪个模型或 Agent API 本周新增了可复现的权限、兼容性、缓存或用量控制边界？
