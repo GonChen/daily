@@ -30,3 +30,13 @@
 | FlashInfer Cake KDA piece-persistent M128 | 2026-08-27 | CUDA Graph/explicit workspace fallback 比率、29-shape 独立 campaign、服务 TTFT/ITL 与状态语义复测 | open |
 | FP8 K-cache token_id int64 overflow guard | 2026-08-27 | <4.2M tokens 的独立回绕复现、DSA/DSV4 之外同型 kernel 覆盖、长上下文服务 A/B | open |
 | TensorRT-LLM KV host-tier world-rank consensus | 2026-08-27 | 用户工作负载/性能数字、attention-DP 子组一致性、fallback/rebuild 的事故与尾时延复测 | open |
+| SGLang DeepEPv2 ElasticBuffer capacity/fail-fast 契约 | 2026-08-28 | H20/B200 之外平台复测、支持/拒绝组合的实际验证、多节点同 fabric legacy 基线、capture hit/p99 | open |
+| SGLang gfx950 Qwen3.5 MTP attention | 2026-08-28 | C16 TPOT 回归根因、非准入形状误 dispatch、更多 MI355X 模型与并发的 served A/B | open |
+| AITER int32 KV seqused_k 2 GiB wrap | 2026-08-28 | <2 GiB 是否也失败、int64 在 >2.87 GiB 的地址覆盖、AITER 上游强制 int64、CI 全绿 | open |
+| FlashInfer trtllm-gen MoE cubin manifest arch 过滤 | 2026-08-28 | filtered manifest/运行时 dispatch 一致性、persisted tactic 升级迁移、sm107/sm103 AOT 复测 | open |
+| TensorRT-LLM MiniMax-M3 hybrid NVFP4/FP8 KV staged route | 2026-08-28 | mixed batch/decode q>8 误选、长运行 scratch/graph replay、GB300 之外平台与独立服务复测 | open |
+| vLLM DeepSeek V4 Humming SwiGLU clamp | 2026-08-28 | 更多 request mix、不同 TP/EP 与硬件的 serving A/B，确认 +1.40% 是否超过噪声 | open |
+| vLLM Hopper low-latency GEMM microbenchmark | 2026-08-28 | Kimi 服务 workload、冷启动和不同 token bucket 的端到端结果 | open |
+| vLLM native CP MLA decode | 2026-08-28 | 同配置 serving A/B、DCP 故障/尾时延和更多模型/拓扑的验证 | open |
+| FlashInfer CUB variable-length top-k | 2026-08-28 | CCCL 依赖合入、稳定 release、同 run 服务与 JIT cost A/B | open |
+| TensorRT-LLM KDA prefill beta-sigmoid/metadata path | 2026-08-28 | draft GPU parity/CI 结果、端到端收益和 fallback 条件 | open |
