@@ -8,6 +8,15 @@
 
 ## 已用
 
+- 2026-08-29 · chips：当一张新卡或新 CUDA/ROCm 镜像被启用时，哪些 arch guard、workspace 或 cubin 选择会把兼容性问题暴露为服务事故？
+- 2026-08-29 · infra-capital：AI 集群的容量主张本周有没有被真实网络、冷启动、调度或交付文件拆解为可核验约束？
+- 2026-08-29 · models-agents：哪项模型服务或 agent 接口本周让认证、流式边界、停止/恢复或工具结构从隐式约定变成可测试行为？
+- 2026-08-29 · inference-systems：哪些 KV、HiCache、MoE 或 speculative 路径本周在异步重叠时新增了 fence、容量或 fail-closed 规则？
+- 2026-08-29 · papers-oss：哪一条开源性能声称同时公布了工作负载、硬件、基线、冷暖状态和可反驳反例？
+- 2026-08-29 · china-industry：中文模型或国产异构部署本周在哪个具体 kernel、precision 或通信路径上形成了可操作门槛？
+- 2026-08-29 · community：本周是否有具名部署者公开了升级后回归、错误路由或配置限制的可复现证据？
+- 2026-08-29 · deepseek-radar：DeepSeek V4 的 Hopper、DSpark、KV 或 load-balancing 集成本周新增了哪些工作节点/缓存/拓扑条件？
+
 - 2026-08-28 · chips：新架构支持的 kernel 或容器是否因错装 cubin、JIT manifest 或架构筛选而放大启动成本？
 - 2026-08-28 · infra-capital：本周有哪些 AI 集群能力声明可被电力、机柜、网络或实际交付证据验证或推翻？
 - 2026-08-28 · models-agents：哪个模型服务接口本周把多轮边界、工具参数或流式事件从隐含约定变成可测试语义？

@@ -1,0 +1,1339 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="2026-08-29 前沿计算情报日报：异步推理的资源余量、顺序与候选集。"
+    />
+    <title>前沿计算情报日报 · 2026-08-29</title>
+    <style>
+      :root {
+        --p: #f3efe5;
+        --c: #fcf9f1;
+        --i: #171714;
+        --m: #69645c;
+        --l: #cbc3b4;
+        --r: #a23d25;
+        --g: #275b4b;
+        --v: #5e4b79;
+        --s: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+        --n:
+          "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--p);
+        color: var(--i);
+        font: 16px/1.72 var(--n);
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1px;
+      }
+      a:hover {
+        color: var(--r);
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--s);
+        text-wrap: balance;
+      }
+      .w {
+        max-width: 1240px;
+        margin: auto;
+        padding: 0 30px;
+      }
+      .mast {
+        background: var(--c);
+        border-top: 7px solid var(--i);
+        border-bottom: 1px solid var(--i);
+        padding: 26px 0 21px;
+      }
+      .ey {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        color: var(--r);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .mr {
+        display: grid;
+        grid-template-columns: 1fr 250px;
+        align-items: end;
+        gap: 35px;
+        margin-top: 20px;
+      }
+      .mast h1 {
+        margin: 0;
+        font-size: clamp(43px, 7vw, 94px);
+        line-height: 0.91;
+        letter-spacing: -0.06em;
+      }
+      .issue {
+        border-left: 1px solid var(--l);
+        padding-left: 20px;
+        color: var(--m);
+        font-size: 13px;
+      }
+      .issue b {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--i);
+        font: 700 23px/1.1 var(--s);
+      }
+      .tick {
+        border-bottom: 1px solid var(--l);
+        background: #e9e2d5;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .tick .w {
+        padding-top: 9px;
+        padding-bottom: 9px;
+        font-size: 12px;
+      }
+      .tick span {
+        margin-right: 27px;
+      }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        border-bottom: 1px solid var(--l);
+        background: #f3efe5ee;
+        backdrop-filter: blur(9px);
+      }
+      .nav .w {
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding-top: 7px;
+        padding-bottom: 7px;
+      }
+      .nav a {
+        padding: 8px 10px;
+        color: var(--m);
+        font-size: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .nav a:last-child {
+        margin-left: auto;
+        border: 1px solid var(--i);
+        color: var(--i);
+      }
+      main {
+        padding: 48px 0 90px;
+      }
+      .lead {
+        display: grid;
+        grid-template-columns: 1.27fr 0.73fr;
+        gap: 60px;
+      }
+      .lab {
+        color: var(--r);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+      .lead h2 {
+        margin: 10px 0 18px;
+        font-size: clamp(31px, 4vw, 56px);
+        line-height: 1.06;
+        letter-spacing: -0.035em;
+      }
+      .dek {
+        color: #3f3a34;
+        font: 400 20px/1.62 var(--s);
+      }
+      .brief {
+        border-top: 3px solid var(--i);
+      }
+      .brief h3 {
+        margin: 13px 0;
+        font-size: 20px;
+      }
+      .brief ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .brief li {
+        border-top: 1px solid var(--l);
+      }
+      .brief a {
+        display: block;
+        padding: 10px 2px;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      .brief b {
+        margin-right: 8px;
+        color: var(--r);
+      }
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 34px;
+        padding: 14px 0;
+        border-top: 1px solid var(--l);
+        border-bottom: 1px solid var(--l);
+        color: var(--m);
+        font-size: 12px;
+      }
+      .tag {
+        display: inline-flex;
+        padding: 2px 7px;
+        border: 1px solid currentColor;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        line-height: 1.5;
+      }
+      .a {
+        color: var(--v);
+      }
+      .b {
+        color: var(--r);
+      }
+      .f {
+        color: var(--g);
+      }
+      .x {
+        color: #765b24;
+      }
+      section {
+        scroll-margin-top: 60px;
+      }
+      .sh {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: baseline;
+        margin: 67px 0 21px;
+        padding-bottom: 9px;
+        border-bottom: 2px solid var(--i);
+      }
+      .sh h2 {
+        margin: 0;
+        font-size: 29px;
+      }
+      .sh span {
+        color: var(--m);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .top {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1px;
+        border: 1px solid var(--l);
+        background: var(--l);
+      }
+      .top article {
+        position: relative;
+        grid-column: span 4;
+        min-height: 318px;
+        padding: 24px;
+        background: var(--c);
+      }
+      .top article:nth-child(4),
+      .top article:nth-child(5) {
+        grid-column: span 6;
+      }
+      .top .tag {
+        position: absolute;
+        top: 20px;
+        right: 18px;
+      }
+      .rank {
+        display: block;
+        margin-bottom: 39px;
+        color: var(--r);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+      }
+      .top h3 {
+        font-size: 22px;
+        line-height: 1.27;
+      }
+      .metric {
+        display: block;
+        margin: 18px 0 8px;
+        color: var(--r);
+        font: 700 29px/1 var(--s);
+      }
+      .top p,
+      .card p {
+        color: #49443d;
+        font-size: 14px;
+      }
+      .src {
+        margin-top: 16px;
+        padding-top: 11px;
+        border-top: 1px solid var(--l);
+        color: var(--m);
+        font-size: 12px;
+      }
+      .src a {
+        margin-right: 12px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 22px;
+      }
+      .card {
+        grid-column: span 6;
+        padding: 22px 24px 24px;
+        border-top: 3px solid var(--i);
+        background: #fcf9f1b9;
+      }
+      .wide {
+        grid-column: span 8;
+      }
+      .narrow {
+        grid-column: span 4;
+      }
+      .card h3 {
+        margin: 8px 0 11px;
+        font-size: 23px;
+        line-height: 1.28;
+      }
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 17px;
+        padding-top: 13px;
+        border-top: 1px solid var(--l);
+      }
+      .facts b {
+        display: block;
+        color: var(--r);
+        font: 700 22px/1.1 var(--s);
+      }
+      .facts span {
+        color: var(--m);
+        font-size: 11px;
+      }
+      .why {
+        margin: 17px 0 0 !important;
+        padding-left: 13px;
+        border-left: 3px solid var(--r);
+      }
+      .rows {
+        border-top: 2px solid var(--i);
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 155px 1fr 220px;
+        gap: 23px;
+        padding: 20px 3px;
+        border-bottom: 1px solid var(--l);
+      }
+      .row h3 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .row p {
+        margin: 0;
+        font-size: 14px;
+        color: #49443d;
+      }
+      .row .take {
+        color: var(--m);
+        font-size: 13px;
+      }
+      .ver {
+        color: var(--r);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .map {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        border: 1px solid var(--l);
+        background: var(--l);
+      }
+      .step {
+        min-height: 208px;
+        padding: 22px;
+        background: var(--c);
+      }
+      .step b {
+        color: var(--r);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+      }
+      .step h3 {
+        margin: 27px 0 9px;
+        font-size: 21px;
+      }
+      .step p {
+        color: var(--m);
+        font-size: 13px;
+      }
+      .quiet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .quiet article {
+        min-height: 205px;
+        padding: 25px;
+        background: #20211d;
+        color: #f2ede2;
+      }
+      .quiet article + article {
+        background: #33342f;
+      }
+      .quiet h3 {
+        margin: 13px 0;
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .quiet p {
+        color: #cbc6bc;
+        font-size: 14px;
+      }
+      .big {
+        display: block;
+        margin-top: 31px;
+        color: #d47960;
+        font: 700 32px/1 var(--s);
+      }
+      .deep {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+      .essay {
+        padding: 30px;
+        border-left: 7px solid var(--r);
+        background: var(--c);
+      }
+      .essay:first-child {
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: 0.75fr 1.25fr;
+        gap: 40px;
+      }
+      .essay h3 {
+        font-size: 28px;
+        line-height: 1.18;
+      }
+      .essay p {
+        color: #413c35;
+      }
+      .tbl {
+        width: 100%;
+        margin: 15px 0;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      .tbl th,
+      .tbl td {
+        padding: 8px 7px;
+        border-bottom: 1px solid var(--l);
+        text-align: left;
+        vertical-align: top;
+      }
+      .tbl th {
+        color: var(--r);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+      }
+      .watch {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 2px solid var(--i);
+        border-bottom: 1px solid var(--i);
+      }
+      .watch article {
+        padding: 21px;
+        border-left: 1px solid var(--l);
+      }
+      .watch article:first-child {
+        border-left: 0;
+      }
+      .watch b {
+        color: var(--r);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+      }
+      .watch h3 {
+        margin: 9px 0 7px;
+        font-size: 18px;
+      }
+      .watch p {
+        margin: 0;
+        color: var(--m);
+        font-size: 13px;
+      }
+      .method {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 50px;
+        margin-top: 63px;
+        padding-top: 24px;
+        border-top: 1px solid var(--i);
+        color: var(--m);
+        font-size: 13px;
+      }
+      .method h2 {
+        margin: 0;
+        color: var(--i);
+        font-size: 21px;
+      }
+      .foot {
+        margin-top: 60px;
+        background: var(--i);
+        color: #aaa;
+      }
+      .foot .w {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        font-size: 12px;
+      }
+      .foot b {
+        color: #fff;
+      }
+      @media (max-width: 800px) {
+        body {
+          font-size: 15px;
+        }
+        .w {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .mr {
+          display: block;
+        }
+        .mast h1 {
+          font-size: 45px;
+        }
+        .issue {
+          margin-top: 17px;
+          padding: 12px 0 0;
+          border-top: 1px solid var(--l);
+          border-left: 0;
+        }
+        .nav a:last-child {
+          margin-left: 0;
+        }
+        .lead {
+          grid-template-columns: 1fr;
+          gap: 29px;
+        }
+        .lead h2 {
+          font-size: 34px;
+        }
+        .dek {
+          font-size: 17px;
+        }
+        .top article,
+        .top article:nth-child(n + 4) {
+          grid-column: span 12;
+          min-height: 0;
+        }
+        .grid {
+          display: block;
+        }
+        .card {
+          margin-bottom: 17px;
+        }
+        .row {
+          grid-template-columns: 1fr auto;
+          gap: 9px;
+        }
+        .row p,
+        .row .take {
+          grid-column: 1/-1;
+        }
+        .map,
+        .watch {
+          grid-template-columns: 1fr;
+        }
+        .step {
+          min-height: 0;
+        }
+        .quiet,
+        .deep {
+          grid-template-columns: 1fr;
+        }
+        .essay:first-child {
+          display: block;
+        }
+        .watch article {
+          border-top: 1px solid var(--l);
+          border-left: 0;
+        }
+        .method {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+        .foot .w {
+          display: block;
+        }
+        .foot span {
+          display: block;
+          margin-top: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="mast">
+      <div class="w">
+        <div class="ey">
+          <span>Private Intelligence Brief</span
+          ><span>AI · Compute · Systems · Markets</span>
+        </div>
+        <div class="mr">
+          <h1>前沿计算<br />情报日报</h1>
+          <div class="issue">
+            <b>2026.08.29</b>星期六 · 增强版<br />资料截至 08:00 CST<br />约 17
+            分钟阅读
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="tick">
+      <div class="w">
+        <span
+          >本期重点：异步 fast path
+          需要保留资源余量、执行顺序和候选完整性。</span
+        ><span>Blackwell：reserve 2 SM 避免 MegaMoE grid barrier 失活。</span
+        ><span>KV connector：只在 async-only step 后移提交。</span
+        ><span>社区报告：top-k bounds guard 可能掩盖为静默错误。</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="w">
+        <a href="#top5">最重要 5 条</a><a href="#chips">芯片</a
+        ><a href="#frameworks">框架</a><a href="#kernels">算子</a
+        ><a href="#models">模型</a><a href="#tools">工具</a
+        ><a href="#acceleration">加速地图</a><a href="#papers">论文</a
+        ><a href="#macro">宏观</a><a href="#deep">深度</a
+        ><a href="#watch">跟踪</a><a href="index.html">← 归档索引</a>
+      </div>
+    </nav>
+    <main class="w">
+      <section id="summary" class="lead">
+        <div>
+          <div class="lab">Executive readout</div>
+          <h2>
+            异步推理的可靠性，不在于把工作“后移”，而在于仍能证明资源可驻留、数据有序、候选没有丢失。
+          </h2>
+          <p class="dek">
+            本期五条事实呈现同一问题的不同层面。Blackwell MegaMoE 需预留 SM
+            才能让 whole-grid barrier 活下去；vLLM 只把 async-only KV load 放到
+            forward launch 后；MI355X split-K 和 B300 low-M tail 都用显式 shape
+            gate 限定优化。社区复现则显示一个防 OOB 的 top-k bounds guard
+            可能退化为静默错误。所有 PR
+            数字均为作者报告；社区问题尚待维护者确认。
+          </p>
+        </div>
+        <aside class="brief">
+          <h3>30 秒结论 · 点击看详情</h3>
+          <ol>
+            <li>
+              <a href="#top5"
+                ><b>01</b>GB300 MegaMoE reserve 2 SM：liveness 恢复，kernel time
+                近乎不变。</a
+              >
+            </li>
+            <li>
+              <a href="#frameworks"
+                ><b>02</b>async KV load：TPOT −4.92%，TTFT +0.07%。</a
+              >
+            </li>
+            <li>
+              <a href="#chips"
+                ><b>03</b>MI355X DSV4：C4–64 吞吐 +0.8%–4.3%，plain TP8
+                无效。</a
+              >
+            </li>
+            <li>
+              <a href="#kernels"
+                ><b>04</b>B300 low-M tail：trace critical chain
+                −25.1%，whole-tail event 几乎不变。</a
+              >
+            </li>
+            <li>
+              <a href="#papers"
+                ><b>05</b>社区报告：B200 k=2048 top-k 64/64 rows 错，未确认。</a
+              >
+            </li>
+          </ol>
+        </aside>
+      </section>
+      <div class="legend">
+        <strong>证据标记</strong><span class="tag f">已合入主线</span
+        ><span class="tag a">PR 作者报告</span
+        ><span class="tag x">本报推断</span
+        ><span class="tag b">条件与局限</span>
+      </div>
+      <section id="top5">
+        <div class="sh">
+          <h2>今日最重要 5 条</h2>
+          <span>dynamic discovery · evidence with boundaries</span>
+        </div>
+        <div class="top">
+          <article>
+            <span class="tag a">SGLang · 作者报告</span
+            ><span class="rank">01</span>
+            <h3>Blackwell 的 barrier 先要让所有 cluster 有机会 resident</h3>
+            <span class="metric">timeout → 0 error</span>
+            <p>
+              #36657 发现 MegaMoE whole-grid barrier 用尽 SM 后，side stream
+              占一个 SM 会令部分 clustered CTA 永远不能 launch。SM100+ 默认
+              reserve 2 SM 并保持偶数 active count。GB300 作者复现中，reserve=0
+              阻塞、reserve=2 在 side stream 仍活跃时完成；overlap scheduler
+              11,052 profiled requests 0 error。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/sgl-project/sglang/pull/36657"
+                target="_blank"
+                rel="noopener"
+                >SGLang #36657</a
+              >
+            </div>
+          </article>
+          <article>
+            <span class="tag a">vLLM · 作者报告</span
+            ><span class="rank">02</span>
+            <h3>只在没有 sync load 的 step，才把 KV 传输提交与 forward 重叠</h3>
+            <span class="metric">−4.92% TPOT</span>
+            <p>
+              #53333 让 async-only connector load 在 current forward launch
+              后提交；sync/mixed step 保持 pre-forward。两节点 Qwen3-0.6B
+              P/D、1,319 GSM8K、C64 A/B：TTFT +9.6ms（+0.07%），TPOT
+              4.940→4.697ms，E2E 仅 −0.16%。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/vllm-project/vllm/pull/53333"
+                target="_blank"
+                rel="noopener"
+                >vLLM #53333</a
+              >
+            </div>
+          </article>
+          <article>
+            <span class="tag a">SGLang · 作者报告</span
+            ><span class="rank">03</span>
+            <h3>capture-time split-K 安全近似优于读取未知的 runtime token</h3>
+            <span class="metric">+0.8%–4.3%</span>
+            <p>
+              #36094 将 MI355X DSV4 split-K heuristic 的 regret
+              33.5%→3.7%。DeepSeek-V4-Pro、TP8+DP8 attention+EP8、8k/1k serving
+              在 C4–64 吞吐 +0.8%–4.3%，TPOT −0.8%至−4.2%；plain TP8
+              变化皆小于1%。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/sgl-project/sglang/pull/36094"
+                target="_blank"
+                rel="noopener"
+                >SGLang #36094</a
+              >
+            </div>
+          </article>
+          <article>
+            <span class="tag a">vLLM · 作者报告</span
+            ><span class="rank">04</span>
+            <h3>B300 Kimi low-M tail 只优化真正暴露的 critical chain</h3>
+            <span class="metric">−25.1%</span>
+            <p>
+              #54168 在 M≤5 才启用 skinny SIMT，M≥6 留给 WGMMA。8×B300 TP8 trace
+              的 exposed chain 12.096→9.056μs；但 slowest-rank whole-tail CUDA
+              event M1 16.384→16.352μs，不能偷换为同等端到端收益。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/vllm-project/vllm/pull/54168"
+                target="_blank"
+                rel="noopener"
+                >vLLM #54168</a
+              >
+            </div>
+          </article>
+          <article>
+            <span class="tag b">社区报告 · 未确认</span
+            ><span class="rank">05</span>
+            <h3>top-k 的 bounds guard 可以阻止 OOB，却仍安静地丢掉候选</h3>
+            <span class="metric">64/64 wrong rows</span>
+            <p>
+              #36807 报告 `fast_topk_v2` 的4,096-entry candidate buffer 在
+              B200、64×256K、k=2048
+              时溢出；输出仍无重复且形状正常，但每行6–42个候选不在 true
+              top-k。最小脚本、低/高长度对照齐全，但尚无维护者确认或修复。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/sgl-project/sglang/issues/36807"
+                target="_blank"
+                rel="noopener"
+                >社区 issue #36807</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="chips">
+        <div class="sh">
+          <h2>芯片、架构与形状</h2>
+          <span>residency and capture-time rules</span>
+        </div>
+        <div class="grid">
+          <article class="card wide">
+            <span class="tag f">Blackwell / MI355X</span>
+            <h3>“用满 GPU”不是一个可以跨 kernel 复用的默认策略。</h3>
+            <p>
+              #36657 的 grid barrier 要求集群能一起 resident，因此保留两个 SM
+              比零 reserve 更可靠；#36094 的 split count 则在 capture 时只能看到
+              scalar shape，刻意接受3.7% residual regret，避免读取 runtime
+              tensor 破坏 graph 安全。两者都将硬件余量和信息可见性写进路径选择。
+            </p>
+            <div class="facts">
+              <div><b>2 SM</b><span>MegaMoE 默认 reserve</span></div>
+              <div><b>3.7%</b><span>capture-time geomean regret</span></div>
+              <div><b>&lt;1%</b><span>#36094 plain TP8 change</span></div>
+            </div>
+            <p class="why">
+              <b>部署含义：</b>分别记录 SM reserve、side-stream occupancy、DP
+              attention head residency、capture miss 和 route hit；不能将一条
+              architecture-specific policy 外推到所有 GPU/并行拓扑。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/sgl-project/sglang/pull/36657"
+                target="_blank"
+                rel="noopener"
+                >#36657</a
+              ><a
+                href="https://github.com/sgl-project/sglang/pull/36094"
+                target="_blank"
+                rel="noopener"
+                >#36094</a
+              >
+            </div>
+          </article>
+          <article class="card narrow">
+            <span class="tag b">限制</span>
+            <h3>服务数据也必须按路径拆开。</h3>
+            <p>
+              #36094 的收益只在 DP attention 下稳定出现；#36657 的零错误是作者的
+              GB300 workload。两项 PR 快照的部分 CI
+              尚未结束或失败，均不是多平台独立复现。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="frameworks">
+        <div class="sh">
+          <h2>推理框架与数据面</h2>
+          <span>order is a contract</span>
+        </div>
+        <div class="grid">
+          <article class="card wide">
+            <span class="tag a">vLLM #53333</span>
+            <h3>
+              把 KV I/O 后移不是“总是更快”，而是一个按消费时刻分支的排序协议。
+            </h3>
+            <p>
+              真正会被当前 step 消费的 sync KV 必须仍在 forward 前准备；只有
+              async-only load 才可在 launch 后由 host 提交，避免 descriptor
+              construction 挡住 GPU。Mooncake、simple CPU offload 和 LMCache
+              都要重写 connector lifecycle，`no_forward` 也必须只启动一次
+              deferred load。
+            </p>
+            <div class="facts">
+              <div>
+                <b>72</b><span>TP8 的 9 remote request NIXL handles</span>
+              </div>
+              <div>
+                <b>~5ms / 48ms</b><span>作者测到的 host posting / spike</span>
+              </div>
+              <div><b>−0.243ms</b><span>C64 TPOT per token</span></div>
+            </div>
+            <p class="why">
+              <b>动作：</b>为每步记录 sync/async/mixed 分类、post-forward
+              submission 时间、connector completion 与 TTFT/TPOT；mixed step
+              必须明确走保守路线。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/vllm-project/vllm/pull/53333"
+                target="_blank"
+                rel="noopener"
+                >#53333 实现与两节点 A/B</a
+              >
+            </div>
+          </article>
+          <article class="card narrow">
+            <span class="tag b">HiCache 雷达</span>
+            <h3>load-back 同样需要与 forward stream 排序。</h3>
+            <p>
+              SGLang #36738 为 transfer H2D wait forward
+              stream，防已释放又复用的 KV page 与 restore
+              竞争。它无稳定数值复现，暂不与 #53333 的 A/B 等量处理。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/sgl-project/sglang/pull/36738"
+                target="_blank"
+                rel="noopener"
+                >SGLang #36738</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="kernels">
+        <div class="sh">
+          <h2>算子与关键路径</h2>
+          <span>measure exposed work and whole step separately</span>
+        </div>
+        <div class="rows">
+          <article class="row">
+            <div>
+              <span class="ver">vLLM #54168</span>
+              <h3>low-M tail</h3>
+            </div>
+            <p>
+              <b>可测事实：</b>B300 TP8 的 packed Nsight exposed chain
+              −25.1%，Lamport copy/reset standalone 约−73.8%；M=8 static/dynamic
+              为7.193/5.794μs，故 static path 截止 M=5。GSM8K strict
+              0.9606，1,319 requests 无 retry。
+            </p>
+            <p class="take">
+              <b>限制：</b>slowest-rank whole-tail event
+              几乎不变；作者为评测临时绕过 upstream startup issue 的未提交
+              workaround 已移除，需在干净 main 上复测。
+            </p>
+          </article>
+          <article class="row">
+            <div>
+              <span class="ver">vLLM #53409</span>
+              <h3>int64 offset</h3>
+            </div>
+            <p>
+              <b>雷达：</b>fused SiLU block-quant 的 int32 token offset wrap
+              可产生 illegal CUDA access；focused regression 1 passed、affected
+              kernel file 331 passed。
+            </p>
+            <p class="take">
+              <b>限制：</b>无服务 workload 或端到端事故量化，不占 Top5。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="models">
+        <div class="sh">
+          <h2>模型、投机与稀疏选择</h2>
+          <span>correctness is not the same as a valid-shaped output</span>
+        </div>
+        <div class="grid">
+          <article class="card wide">
+            <span class="tag b">SGLang #36807 · 社区报告</span>
+            <h3>
+              当 top-k 只检查范围、形状和去重时，候选 truncation
+              可以成为静默的模型行为变化。
+            </h3>
+            <p>
+              报告称 DeepSeek V3.2 DSA 的 k=2048 unfused/miss-JIT path 可能进入
+              fixed candidate buffer。B200 对照显示64K columns
+              为0/64错，256K为64/64错，1M为64/64错且错误更多；输出看似合法。该报告的价值是把
+              score multiset 与 `torch.topk` 做 tie-robust 比对，而不只是检查
+              index 格式。
+            </p>
+            <div class="facts">
+              <div><b>4,096</b><span>CUDA candidate capacity</span></div>
+              <div>
+                <b>4,178–4,448</b><span>256K threshold-bucket population</span>
+              </div>
+              <div><b>6–42</b><span>每错行非 true-top-k 选择</span></div>
+            </div>
+            <p class="why">
+              <b>行动：</b>在维护者确认前，对长 row/k=2048 的受影响 route 做
+              reference sampling 或 fail-closed；不要把 issue
+              当成已修复漏洞，也不要仅凭 valid indices 断言稀疏选择正确。
+            </p>
+            <div class="src">
+              <a
+                href="https://github.com/sgl-project/sglang/issues/36807"
+                target="_blank"
+                rel="noopener"
+                >最小复现与环境</a
+              >
+            </div>
+          </article>
+          <article class="card narrow">
+            <span class="tag b">不确定性</span>
+            <h3>这是具名社区报告，不是 release note。</h3>
+            <p>
+              作者指出，触发还依赖 score 分布和 route；ROCm
+              的容量阈值不同。需要维护者确认、真实请求触发率、JIT/fused/ROCm
+              分支复测，才能升级为产品结论。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="tools">
+        <div class="sh">
+          <h2>开发工具与 Agent</h2>
+          <span>observability is part of safety</span>
+        </div>
+        <div class="grid">
+          <article class="card wide">
+            <span class="tag x">工程准则</span>
+            <h3>
+              异步 API 不应只暴露“完成”，还应暴露资源和顺序是否满足其前提。
+            </h3>
+            <p>
+              #36657 与 #53333
+              的共同点是：一个重叠路径要先声明自己会占用什么资源、什么时候能与另一个
+              stream 并行。为 connector、cache 和 agent 的后台任务提供
+              `reason`、`ordering`、`fallback` 与 `resource reservation`
+              观测，才可将“偶发 hang”还原为可行动条件。
+            </p>
+            <p class="why">
+              <b>最小测试：</b>并发提交一个故意占用资源的 side stream
+              与一个需要全局进度的路径；再分别注入 sync、async、mixed
+              数据依赖，断言 route、返回时间和输出正确性。
+            </p>
+          </article>
+          <article class="card narrow">
+            <span class="tag b">产品动态安静</span>
+            <h3>本窗口没有合格的 Agent 产品/价格主卡。</h3>
+            <p>
+              有认证和 API 变更的
+              PR，但缺少可量化的真实部署影响；不以版本号或功能清单填充。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="acceleration">
+        <div class="sh">
+          <h2>推理加速地图</h2>
+          <span>four proofs before enabling overlap</span>
+        </div>
+        <div class="map">
+          <article class="step">
+            <b>01 · RESIDENCY</b>
+            <h3>所有 cluster 能启动</h3>
+            <p>
+              whole-grid barrier 前保留 SM 余量；仅“平均利用率高”不证明
+              liveness。
+            </p>
+          </article>
+          <article class="step">
+            <b>02 · ORDER</b>
+            <h3>谁先消费谁先准备</h3>
+            <p>
+              sync KV 留 pre-forward，async-only 才可后移；每一条 stream
+              边都要可观测。
+            </p>
+          </article>
+          <article class="step">
+            <b>03 · SHAPE</b>
+            <h3>只在测过的 regime 切换</h3>
+            <p>
+              split-K、SIMT/WGMMA 的阈值来自架构、head、M 和 capture-time
+              可见信息。
+            </p>
+          </article>
+          <article class="step">
+            <b>04 · COMPLETE SET</b>
+            <h3>格式合法不等于结果正确</h3>
+            <p>
+              稀疏 top-k 要在长 row、bucket overflow 和真实 score 分布上与
+              reference 比对。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="papers">
+        <div class="sh">
+          <h2>论文、开源与社区复现</h2>
+          <span>separate report from confirmation</span>
+        </div>
+        <div class="quiet">
+          <article>
+            <span class="tag b">社区一手报告</span>
+            <h3>#36807 给出了长 row top-k 的量化错误、环境和最小脚本。</h3>
+            <p>
+              这是本期唯一满足社区渠道配额的内容。它有价值，因为控制点与错误量化可反驳；它仍是单一报告，尚不是维护者确认、修复或独立复现。
+            </p>
+            <span class="big">64 / 64</span>
+          </article>
+          <article>
+            <span class="tag a">开源 PR 证据</span>
+            <h3>合入 PR 的完整数字仍是作者报告，而非独立 benchmark。</h3>
+            <p>
+              本期 #36094、#36657、#53333、#54168
+              都披露硬件/负载/限制。页面同时保留 CI、whole-step
+              与路径边界，避免把局部 trace 改写为服务 SLA。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="macro">
+        <div class="sh">
+          <h2>宏观、资本与中文产业</h2>
+          <span>primary files only</span>
+        </div>
+        <div class="grid">
+          <article class="card wide">
+            <span class="tag b">公开面安静</span>
+            <h3>
+              没有可进入正文的新增融资、供电、并网、订单、监管或中文产业一手文件。
+            </h3>
+            <p>
+              当 kernel 或 KV path 改善时，只有把 cold restart、route
+              hit、side-stream contention、P90
+              和利用率带入，才可能形成容量与成本结论。本期不从作者 A/B 或社区
+              issue 推导采购和营收判断。
+            </p>
+          </article>
+          <article class="card narrow">
+            <span class="tag x">观察指标</span>
+            <h3>关注有效重叠，而非总启动数。</h3>
+            <p>
+              如果一项异步优化造成 TTFT 上升、whole-step
+              无变或静默正确性风险，它需要在容量模型中扣减，而不是只记录 kernel
+              微秒数。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="deep">
+        <div class="sh">
+          <h2>深度解读</h2>
+          <span>comparison · deployment consequence · falsification</span>
+        </div>
+        <div class="deep">
+          <article class="essay">
+            <div>
+              <span class="tag x">深挖 01</span>
+              <h3>重叠不是免费并行：它是一份资源驻留与执行顺序的合同。</h3>
+              <p>#36657 · #53333</p>
+            </div>
+            <div>
+              <p>
+                #36657 的失败来自 grid barrier 等待永远无法 resident 的
+                cluster；#53333 的收益来自 host 不再在 forward 前同步构造 async
+                load
+                descriptor。二者都不是“多开线程”或“后移调用”即可成立，而是需要明确何时保留资源、何时推迟提交、何时必须走保守路径。
+              </p>
+              <table class="tbl">
+                <thead>
+                  <tr>
+                    <th>路径</th>
+                    <th>旧的隐含假设</th>
+                    <th>新 gate</th>
+                    <th>可观测结果</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>MegaMoE</td>
+                    <td>所有 SM 可用且 cluster 总能 resident</td>
+                    <td>SM100+ reserve 2 / even count</td>
+                    <td>side-stream repro 从 timeout 到完成</td>
+                  </tr>
+                  <tr>
+                    <td>KV load</td>
+                    <td>所有 load 都应 pre-forward</td>
+                    <td>仅 async-only post-forward</td>
+                    <td>TPOT −4.92%，TTFT +0.07%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>
+                <b>动作：</b>把 SM reserve、side-stream
+                occupancy、sync/async/mixed classification 和 connector
+                completion 写入同一条 request trace。<b>证伪：</b>若 reserve
+                增大在真实 workload 降低吞吐，或 mixed load
+                后移仍正确且更快，现有 gate 需要重新测量。
+              </p>
+              <div class="src">
+                <a
+                  href="https://github.com/sgl-project/sglang/pull/36657"
+                  target="_blank"
+                  rel="noopener"
+                  >#36657</a
+                ><a
+                  href="https://github.com/vllm-project/vllm/pull/53333"
+                  target="_blank"
+                  rel="noopener"
+                  >#53333</a
+                >
+              </div>
+            </div>
+          </article>
+          <article class="essay">
+            <span class="tag x">深挖 02</span>
+            <h3>
+              fast path 的选择器必须同时处理“看不见的状态”和“容不下的候选”。
+            </h3>
+            <p>
+              #36094 用 capture-time scalar 选择 split-K，放弃不可见 token-K
+              的最优值以保证 graph 安全。#54168 用 M=5 作 SIMT/WGMMA
+              分界。#36807 的 fixed candidate buffer 则显示 bounds guard
+              可能悄悄截断真正需要比较的集合。
+            </p>
+            <table class="tbl">
+              <thead>
+                <tr>
+                  <th>选择器</th>
+                  <th>已知条件</th>
+                  <th>安全边界</th>
+                  <th>反例</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MI355X split-K</td>
+                  <td>capture scalars</td>
+                  <td>3.7% residual regret</td>
+                  <td>plain TP8 无稳定收益</td>
+                </tr>
+                <tr>
+                  <td>B300 tail</td>
+                  <td>low M</td>
+                  <td>SIMT 仅 M≤5</td>
+                  <td>M8 WGMMA 更快</td>
+                </tr>
+                <tr>
+                  <td>fast_topk_v2</td>
+                  <td>threshold bucket</td>
+                  <td>buffer ≤4,096</td>
+                  <td>overflow 后静默错误报告</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              <b>动作：</b>将 route/threshold 与 reference sampling
+              绑定，特别是长 row 和稀疏候选。<b>证伪：</b>维护者若复现不了
+              #36807，或 JIT 默认路径不可能进入该 AOT
+              kernel，应缩小影响范围；在此之前它仍是待验证社区信号。
+            </p>
+          </article>
+          <article class="essay">
+            <span class="tag b">最小复测清单</span>
+            <h3>每项异步/稀疏优化都需测四类状态。</h3>
+            <p>
+              固定硬件、驱动、模型、TP/DP/EP、输入输出与并发；分别跑
+              idle、side-stream contention、sync/async/mixed load、长 row/score
+              bucket；同时记录 trace critical
+              path、whole-step、P50/P90、error/retry 和 reference
+              correctness。没有这些字段的速度数字只能当候选线索。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="watch">
+        <div class="sh">
+          <h2>后续跟踪</h2>
+          <span>what would change the conclusion</span>
+        </div>
+        <div class="watch">
+          <article>
+            <b>MegaMoE reserve</b>
+            <h3>验证跨负载成本</h3>
+            <p>
+              跟踪 CI、不同 reserve、side-stream 和 SM100 之外平台的
+              liveness/吞吐。
+            </p>
+          </article>
+          <article>
+            <b>async KV load</b>
+            <h3>补齐 connector P99</h3>
+            <p>
+              需要 TP8、多节点、mixed/sync step 和更多 connector 的尾部数据。
+            </p>
+          </article>
+          <article>
+            <b>low-M tail</b>
+            <h3>清除 workaround</h3>
+            <p>
+              需在干净 upstream main 上复测 startup、whole-tail 和服务 request
+              mix。
+            </p>
+          </article>
+          <article>
+            <b>top-k report</b>
+            <h3>先确认再行动</h3>
+            <p>
+              等维护者复现/修复，测真实 DSA route、JIT/fused/ROCm
+              差异与用户影响。
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="method">
+        <h2>编辑说明与可信度</h2>
+        <div>
+          <p>
+            本期按 2026-08-28 至 2026-08-29 动态窗口扫描
+            SGLang、vLLM、FlashInfer、TensorRT-LLM 的官方仓库，并检索公开社区
+            issue；已按最近两期 ledger 去重。Top5
+            实际覆盖推理与系统、论文与开源两个标准桶；芯片/资本、模型/Agent
+            产品、中文产业没有满足准入线的一手新增事实，未为凑桶引入弱候选。
+          </p>
+          <p>
+            八桶 `intel-scout` 两轮均在首条模型消息前停滞；`pi auth check
+            --model br/deepseek-v4-flash --json` 返回 ready，进程继承系统
+            HTTP(S) proxy。故 scout 阶段降级为主控 GitHub API/PR/issue 核验。除
+            #36807 外，性能和正确性数字均为 PR 作者报告；#36807
+            为具名社区复现、尚未获维护者确认。本报不将任何内容视为独立复现或投资建议。
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="w">
+        <b>前沿计算情报日报 · 2026-08-29</b
+        ><span
+          >增强版 · 2026-08-29 CST ·
+          <a href="index.html">返回归档索引 →</a></span
+        >
+      </div>
+    </footer>
+  </body>
+</html>

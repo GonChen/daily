@@ -40,3 +40,10 @@
 | vLLM native CP MLA decode | 2026-08-28 | 同配置 serving A/B、DCP 故障/尾时延和更多模型/拓扑的验证 | open |
 | FlashInfer CUB variable-length top-k | 2026-08-28 | CCCL 依赖合入、稳定 release、同 run 服务与 JIT cost A/B | open |
 | TensorRT-LLM KDA prefill beta-sigmoid/metadata path | 2026-08-28 | draft GPU parity/CI 结果、端到端收益和 fallback 条件 | open |
+| SGLang MI355X DSV4 decode split-K heuristic | 2026-08-29 | CI 全绿、plain TP8/其他 gfx950 workload、capture-time 3.7% regret 与真实 request mix 的复测 | open |
+| SGLang Blackwell MegaMoE SM reserve liveness | 2026-08-29 | CI 结果、不同 reserve/side-stream 加载、SM100 之外架构和性能/吞吐独立复测 | open |
+| vLLM async KV load post-forward submission | 2026-08-29 | TP8/多节点 NIXL 的 host posting tail、mixed/sync load 正确性、不同 connector 的 P99 与 E2E 复测 | open |
+| vLLM Kimi-K3 low-M latent MoE tail | 2026-08-29 | 无 startup workaround 的 upstream full-model 复测、M≥6 route、whole-tail/E2E 和其他 B300 拓扑数据 | open |
+| SGLang fast_topk_v2 长 row k=2048 固定 4,096-candidate buffer 静默错选 | 2026-08-29 | 维护者确认/修复、真实 DSA request 触发率、JIT/fused variants 与 ROCm path 的独立复现 | open |
+| SGLang HiCache load-back forward-stream fence | 2026-08-29 | 可重复竞态测试、fence 对 load-back TTFT/P99、#36572 组合与多 controller 覆盖 | open |
+| SGLang Docker image copy-then-delete layer bloat | 2026-08-29 | 维护者确认、latest/main provenance、修复后 image manifest 与实际 pull bytes | open |
