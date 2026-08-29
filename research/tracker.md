@@ -45,5 +45,10 @@
 | vLLM async KV load post-forward submission | 2026-08-29 | TP8/多节点 NIXL 的 host posting tail、mixed/sync load 正确性、不同 connector 的 P99 与 E2E 复测 | open |
 | vLLM Kimi-K3 low-M latent MoE tail | 2026-08-29 | 无 startup workaround 的 upstream full-model 复测、M≥6 route、whole-tail/E2E 和其他 B300 拓扑数据 | open |
 | SGLang fast_topk_v2 长 row k=2048 固定 4,096-candidate buffer 静默错选 | 2026-08-29 | 维护者确认/修复、真实 DSA request 触发率、JIT/fused variants 与 ROCm path 的独立复现 | open |
+| SGLang GLM-5.2 MTP ROCm is_cuda 门控致 PD decode fast path 失效（gfx942/gfx950） | 2026-08-30 | Base/Extra/AMD CI 转绿、独立 MI355X serving A/B、LongBench 稀疏精度的非噪声验证 | open |
+| SGLang AITER non-MLA EAGLE eager fallback 复用旧 qo_indptr 致 HIP memory fault | 2026-08-30 | 新增 unit/doc、CI 转绿、其他 EAGLE shape/BS 的 ready/fault 复测、graph 内路径对照 | open |
+| SGLang MiMo-V2.5 audio 跨 DP collective desync 全服务挂住 600s | 2026-08-30 | 维护者确认/修复、text+audio 混合 batch 的最小复现、其他 audio-capable 模型与 TP/DP 拓扑复测 | open |
+| vLLM GB10 hybrid GDN MTP/DFlash prefix cache hit 崩塌（17,248→0，TTFT 0.64→13.9s） | 2026-08-30 | 维护者确认、prompt geometry 与 #52244 组合影响、main 复测与修复 | open |
+| FlashInfer B300 MXFP4 fused-MoE 2-CTA B=2048 hang（130 次 53 hang） | 2026-08-30 | 维护者确认/修复、0.6.17 之外的版本复测、-services A/B 与 trigger 模型 | open |
 | SGLang HiCache load-back forward-stream fence | 2026-08-29 | 可重复竞态测试、fence 对 load-back TTFT/P99、#36572 组合与多 controller 覆盖 | open |
 | SGLang Docker image copy-then-delete layer bloat | 2026-08-29 | 维护者确认、latest/main provenance、修复后 image manifest 与实际 pull bytes | open |
