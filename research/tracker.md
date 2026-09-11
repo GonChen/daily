@@ -1,6 +1,10 @@
 # 跟踪清单
 
 | 事项 | 首次日期 | 触发条件 | 状态 |
+| SGLang DeepSeek-V4.1 DSpark fused verify | 2026-09-11 | GPU CI、自然 acceptance、含 prefill 的 serving A/B、GB300 外拓扑与 P99 | open |
+| vLLM ROCm bpreshuffled blockscaled FP8 GEMM | 2026-09-11 | AITER FP8BMM gate 解除、MI300/MI350 多模型、DPA/EP 与真实 request mix 的 served A/B | open |
+| FlashInfer B200/B300 Cake KDA decode | 2026-09-11 | Cake 命中率、CUDA Graph/默认 fallback、完整模型服务和不同 state-index mode 的 P99 | open |
+| SGLang 量化 DFlash2 draft 接受率坍塌 | 2026-09-11 | 维护者确认/修复、量化格式与 target quant 的独立复现、no-drafter 对照与告警策略 | open |
 |---|---:|---|---|
 | NVIDIA / OpenAI Ohio 项目融资 | 2026-08-20 | 新 SEC 文件、ready-for-service、并网、租约、担保或实际容量变化 | open |
 | DeepSeek Harness | 2026-08-19 | RC 转正式、SQLite 迁移说明、Codex/Claude profile 权限变化或事故报告 | open |
