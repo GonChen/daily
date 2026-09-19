@@ -10,7 +10,8 @@
 - 开放模型：DeepSeek、GLM、Kimi、Qwen
 - Agent 与开发工具：OpenAI / Codex、Claude Code、Cursor、pi
 - 推理加速：投机解码、KV Cache、PD 分离、稀疏/线性注意力、量化 MoE、调度与算子优化
-- 产业资本市场与重要宏观变化
+- 社区热榜：Hacker News 首页热榜、Reddit 热帖、GitHub trending、X/Twitter 热点（2026-09-19 起单列热榜侦察桶）
+- 资本与宏观：仅在与芯片供给或推理部署直接相关时附带覆盖，不再单独驱动选题
 
 ## 工作方式
 

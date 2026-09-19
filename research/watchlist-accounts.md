@@ -1,6 +1,6 @@
-# X/Twitter watchlist（community 桶用）
+# X/Twitter watchlist（trending 与 community 桶共用）
 
-`twitter search` 不可用时（404），逐账号 `twitter user-posts @handle -n 20` 扫描。维护规则：每期发现的低噪声高信号账号加入；连续多期无信号的移到"观察"。账号以实际核实为准，发现失效/handle 变更直接修正。
+`trending` 桶用它快扫热点，`community` 桶用它深挖一手发言。`twitter search` 不可用时（404），逐账号 `twitter user-posts @handle -n 20` 扫描。维护规则：每期发现的低噪声高信号账号加入；连续多期无信号的移到"观察"。账号以实际核实为准，发现失效/handle 变更直接修正。
 
 ## 推理框架与算子库维护者
 

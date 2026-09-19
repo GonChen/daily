@@ -9,11 +9,13 @@
 | 主题桶 | 搜索方向示例 | 目标 |
 |---|---|---|
 | 芯片与供应链 | NVIDIA / AMD / HBM / network / 国产 GPU / ASIC + date | 产品、订单、供电、互连、制造或供应链变化 |
-| AI 基础设施与资本 | AI data center / cloud / financing / energy / SEC / earnings | 合同、CapEx、融资、并网、财报与风险转移 |
+| 社区热榜 | Hacker News front page / Reddit hot / GitHub trending / X hot + date | 当天正在升温的事件、工具、benchmark、事故与争论 |
 | 模型与 Agent | open weights / coding agent / OpenAI / Claude Code / Cursor / pi | 模型、产品、协议、价格、权限与执行能力变化 |
 | 推理与系统 | inference / speculative decoding / KV cache / MoE / MLA / quantization | 可部署的系统、算法与性能变化 |
 | 论文与开源 | arXiv / GitHub + inference kernel / systems / evaluation | 新论文、实现、复现与工程化落地 |
 | 中文技术与产业 | 中文公司名 + 发布/公告/财报/开源/招聘/开发者 | 昇腾、寒武纪、壁仞、沐曦及国内模型公司的高价值一手信号 |
+
+资本与宏观（数据中心融资、并网、SEC/财报、宏观指标）自 2026-09-19 起**不再单独驱动选题**：仅当某事件直接改变芯片供给（重大订单、断供、产能）或推理部署经济性（直接影响 GPU/云成本的一手文件）时，并入"芯片与供应链"或"推理与系统"桶附带覆盖，每期正文至多 1 条，并标注"资本面"。
 
 搜索必须同时使用中文与英文关键词；每天轮换实体、技术路线和反向问题（例如“谁在解决 KV 搬运”而非只搜索某个框架名）。候选进入正文前必须被一手来源、监管文件、官方仓库或可信媒体交叉核验。
 
@@ -70,7 +72,7 @@ DeepSeek 的每日主入口是 [deepseek-ai GitHub organization](https://github.
 当 `~/.codex/skills/pi-subagents/pi-subagent` 可用（CLI 存在且 `pi auth` 有效）时，按 `templates/automation-prompt-v2.md` 的四阶段流水线执行：
 
 1. **dedup 基线**：读最近两期 ledger，写 `research/pipeline/<DATE>/dedup.md`（实体/主题/上次出现），并从 `research/angles.md` 取轮换角度；
-2. **并行侦察**：用 `intel-scout` agent 扇出 8 桶（芯片、基础设施/资本、模型/Agent、推理系统、论文/开源、中文产业、社区信号、DeepSeek 官方雷达），各桶独立上下文，产出候选文件；
+2. **并行侦察**：用 `intel-scout` agent 扇出 8 桶（芯片、模型/Agent、推理系统、论文/开源、中文产业、热榜、社区深信号、DeepSeek 官方雷达），各桶独立上下文，产出候选文件。热榜桶负责当日 HN 首页、Reddit 热帖、GitHub trending、X/Twitter 热点的广度扫描（带热度数字）；社区深信号桶负责从业者复现、事故、争论的深挖；两桶分工是"广度扫榜 vs 深度一手"，选题时合并去重；
 3. **对抗性选题**：`intel-editor` 打分（新颖度/物质性/可验证性）、执行第 6 节配额、定 Top 5 与深挖题，落选者写拒绝理由；
 4. **深挖**：`intel-analyst` 并行处理 2–3 个深挖题，读一手来源全文，产出对比与证伪条件。
 
